@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class DragNPlaceItem : MonoBehaviour
 {
+    public ImpactScore impactScore;
+
     [SerializeField] Camera cam;
     [SerializeField] ToggleMinigame toggle;
     private bool dragging = false;
@@ -40,6 +42,11 @@ public class DragNPlaceItem : MonoBehaviour
     private Vector2 GetMousePos()
     {
         return cam.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    private void OnMouseOver()
+    {
+        
     }
 
     private void CheckBounds()

@@ -18,6 +18,7 @@ public class ToggleMinigame : MonoBehaviour
         if (inGame) 
         {
             SwapItemParents();
+
             minigameObjects.SetActive(false);
             platform.SetActive(true);
             camA.enabled = !camA.enabled;
@@ -37,16 +38,19 @@ public class ToggleMinigame : MonoBehaviour
 
     private void SwapItemParents()
     {
+        Sculpture.Instance.itemScores.Clear();
         foreach (var item in items)
         {
             if (item.inPlace)
             {
                 item.transform.parent = sculpture.transform;
+                Sculpture.Instance.itemScores.Add(item.impactScore);
             } 
             else
             {
                 item.transform.parent = inventory.transform;
             }
         }
+        Sculpture.Instance.UpdateScore();
     }
 }
