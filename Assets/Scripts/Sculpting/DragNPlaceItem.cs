@@ -1,22 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Xml.Schema;
 using UnityEngine;
 
 public class DragNPlaceItem : MonoBehaviour
 {
     public ImpactScore impactScore;
 
-    [SerializeField] Camera cam;
-    [SerializeField] ToggleMinigame toggle;
-    private bool dragging = false;
-    private Vector2 offset = Vector2.zero;
-    public bool inPlace = false;
-
+    [Header("Bounds")]
     [SerializeField] float xMin;
     [SerializeField] float xMax;
     [SerializeField] float yMin;
     [SerializeField] float yMax;
+
+    [Header("Other")]
+    [SerializeField] Camera cam;
+    public ToggleMinigame toggle;
+    public bool dragging = false;
+    private Vector2 offset = Vector2.zero;
+    public bool inPlace = false;
 
     // Update is called once per frame
     void Update()
@@ -24,6 +23,7 @@ public class DragNPlaceItem : MonoBehaviour
         if (!dragging || !toggle.inGame) { return; }
 
         Vector2 mousePos = GetMousePos();
+        transform.position = mousePos;
         transform.position = mousePos - offset;
         CheckBounds();
     }
@@ -31,7 +31,7 @@ public class DragNPlaceItem : MonoBehaviour
     private void OnMouseDown()
     {
         dragging = true;
-        offset = GetMousePos() - (Vector2)transform.position;
+        offset = GetMousePos() - new Vector2(transform.position.x, transform.position.y);
     }
 
     private void OnMouseUp()
@@ -42,11 +42,6 @@ public class DragNPlaceItem : MonoBehaviour
     private Vector2 GetMousePos()
     {
         return cam.ScreenToWorldPoint(Input.mousePosition);
-    }
-
-    private void OnMouseOver()
-    {
-        
     }
 
     private void CheckBounds()

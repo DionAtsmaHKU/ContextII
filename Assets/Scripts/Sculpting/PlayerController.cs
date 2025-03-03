@@ -23,6 +23,6 @@ public class PlayerController : MonoBehaviour
     {
         float xInput = Input.GetAxisRaw("Horizontal");
         float zInput = Input.GetAxisRaw("Vertical");
-        rb.velocity = new Vector3(xInput, 0, zInput) * speed;
+        rb.velocity = new Vector3(xInput, rb.velocity.y/speed, zInput) * speed;
     }
 }

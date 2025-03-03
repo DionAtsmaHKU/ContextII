@@ -1,21 +1,44 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
+using System;
 using UnityEngine;
+using UnityEngine.UI;
+using Yarn;
 
-[Serializable]
-public class Tooltip
+public class Tooltip : MonoBehaviour
 {
-    public TextMeshProUGUI testText;
+    public TextMeshProUGUI headerField;
+    public TextMeshProUGUI contentField;
+    public LayoutElement layoutElement;
+    public RectTransform rectTransform;
 
-    public void EnableTT()
+    private void Awake()
     {
-        testText.enabled = true;
+        rectTransform = GetComponent<RectTransform>();
     }
 
-    public void DisableTT()
+    private void Update()
     {
-        testText.enabled = false;
-    } 
+        Vector3 position = Input.mousePosition;
+        float pivotX = position.x / Screen.width;
+        float pivotY = position.y / Screen.height;
+        rectTransform.pivot = new Vector2 (pivotX, pivotY);
+        transform.position = position;
+    }
+
+    public void SetText(string content, string header = "")
+    {
+        if (string.IsNullOrEmpty(header))
+        {
+            headerField.gameObject.SetActive(false);
+
+        }
+        else
+        {
+            headerField.gameObject.SetActive(true);
+            headerField.text = header;
+        }
+
+        contentField.text = content;
+        layoutElement.enabled = Math.Max(headerField.preferredWidth, contentField.preferredWidth) >= layoutElement.preferredWidth;
+    }
 }
