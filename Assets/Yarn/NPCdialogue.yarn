@@ -1,0 +1,25 @@
+﻿title: Start
+tags:
+---
+<<Act Imagining>>
+Narrator: Hi! Did you hear the statue in the town square has been vandalized?
+    -> I'm actually making a new statue to replace it!
+        <<Act Empowering>>
+        Narrator: That's a good idea! I'm kind of glad that ugly thing is gone, but the square looks so empty now...
+            -> I agree! F*ck that statue though.
+                <<jump Angry>>
+            -> Say nothing.
+                <<jump Guilty>>
+===
+
+title: Angry
+---
+<<Act Subverting>>
+Narrator: Yeah, it was pretty bad all right.
+===
+
+title: Guilty
+---
+<<Act Cocreating>>
+Narrator: Why so quiet? Does somebody have a guilty concience?
+===
