@@ -6,18 +6,18 @@ public class TooltipTrigger : MonoBehaviour
 {
     public string title;
     public string description;
-    private DragNPlaceItem dragNPlaceItem;
+    private Item item;
 
     private float timer = 0;
 
     private void Start()
     {
-        dragNPlaceItem = GetComponent<DragNPlaceItem>();
+        item = GetComponent<Item>();
     }
 
     private void Update()
     {
-        if (dragNPlaceItem.dragging)
+        if (item.dragging)
         {
             TooltipSystem.Hide();
             timer = 1;
@@ -28,7 +28,7 @@ public class TooltipTrigger : MonoBehaviour
     private void OnMouseOver()
     {
         timer -= Time.deltaTime;
-        if (timer <  0 && dragNPlaceItem.toggle.inGame)
+        if (timer <  0 && item.toggle.inGame)
         {
             TooltipSystem.Show(description, title);
         }

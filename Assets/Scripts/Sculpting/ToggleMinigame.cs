@@ -9,9 +9,11 @@ public class ToggleMinigame : MonoBehaviour
     [SerializeField] GameObject minigameObjects;
     [SerializeField] GameObject platform;
     [SerializeField] GameObject sculpture;
-    [SerializeField] GameObject inventory;
-    [SerializeField] List<DragNPlaceItem> items;
+    [SerializeField] GameObject inventoryParent;
     public bool inGame;
+
+    public List<Item> inventory = new List<Item>();
+    public List<Transform> itemSlots = new List<Transform>();
 
     public void Toggle()
     {
@@ -28,6 +30,8 @@ public class ToggleMinigame : MonoBehaviour
         }
         else
         {
+            OpenInventory();
+
             minigameObjects.SetActive(true);
             platform.SetActive(false);
             camA.enabled = !camA.enabled;
@@ -36,19 +40,29 @@ public class ToggleMinigame : MonoBehaviour
         }
     }
 
+    private void OpenInventory()
+    {
+        for (int i = 0; i < inventory.Count; i++)
+        {
+            if (inventory[i].inPlace)
+                continue;
+            inventory[i].transform.position = itemSlots[i].transform.position;
+        }
+    }
+
     private void SwapItemParents()
     {
         Sculpture.Instance.itemScores.Clear();
-        foreach (var item in items)
+        foreach (var item in inventory)
         {
             if (item.inPlace)
             {
-                item.transform.parent = sculpture.transform;
+                item.gameObject.transform.parent = sculpture.transform;
                 Sculpture.Instance.itemScores.Add(item.impactScore);
             } 
             else
             {
-                item.transform.parent = inventory.transform;
+                item.gameObject.transform.parent = inventoryParent.transform;
             }
         }
         Sculpture.Instance.UpdateScore();

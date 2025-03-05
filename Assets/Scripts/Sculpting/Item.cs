@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DragNPlaceItem : MonoBehaviour
+public class Item : MonoBehaviour
 {
     public ImpactScore impactScore;
 
@@ -17,6 +17,11 @@ public class DragNPlaceItem : MonoBehaviour
     private Vector2 offset = Vector2.zero;
     public bool inPlace = false;
 
+    private void OnEnable()
+    {
+        dragging = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -25,11 +30,12 @@ public class DragNPlaceItem : MonoBehaviour
         Vector2 mousePos = GetMousePos();
         transform.position = mousePos;
         transform.position = mousePos - offset;
+        Debug.Log(mousePos);
         CheckBounds();
     }
 
     private void OnMouseDown()
-    {
+    {   
         dragging = true;
         offset = GetMousePos() - new Vector2(transform.position.x, transform.position.y);
     }

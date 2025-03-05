@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SwapParent : MonoBehaviour
-{
+{   
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Item"))
         {
-            other.GetComponent<DragNPlaceItem>().inPlace = true;
+            other.GetComponent<Item>().inPlace = true;
         }
     }
 
@@ -16,7 +16,7 @@ public class SwapParent : MonoBehaviour
     {
         if (other.CompareTag("Item"))
         {
-            other.GetComponent<DragNPlaceItem>().inPlace = false;
+            other.GetComponent<Item>().inPlace = false;
         }
     }
 }
