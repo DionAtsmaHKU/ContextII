@@ -26,6 +26,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             player_present = false;
             Debug.Log("player exited dialoguetrigger");
+            //hide button prompt
         }
     }
 

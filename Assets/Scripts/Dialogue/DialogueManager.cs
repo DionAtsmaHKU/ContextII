@@ -12,4 +12,9 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("Start Sculpture Dialogue");
         runner.StartDialogue("Sculpture");
     }
+
+    public void CocreatingDialogue()
+    {
+        runner.StartDialogue("Cocreating1");
+    }
 }
