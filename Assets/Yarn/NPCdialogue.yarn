@@ -34,6 +34,7 @@ Sculpture: I am broken...
 
 title: Cocreating1
 ---
+<<Act Cocreating>>
 Cocreating: Hello player! What are you up to?
     -> I am making a replacement for the statue in the town square!
         Cocreating: That is such a good idea! If you need any help, let me know!
@@ -45,6 +46,7 @@ Cocreating: Hello player! What are you up to?
 
 title: Item
 ---
+<<Act Cocreating>>
 Cocreating: I had something lying around, let me see...
 Cocreating: Here it is! I don't use it anymore, so you can have it.
     -> Thank you!
