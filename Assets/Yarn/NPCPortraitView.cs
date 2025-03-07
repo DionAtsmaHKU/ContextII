@@ -10,7 +10,7 @@ public class CharacterPortraits : DialogueViewBase
 {
     [SerializeField] DialogueRunner runner;
     [SerializeField] Image portraitImage;
-    public List<Sprite> sprites = new List<Sprite>();
+    private List<Sprite> sprites = new List<Sprite>();
 
     void Awake()
     {
@@ -19,7 +19,7 @@ public class CharacterPortraits : DialogueViewBase
         runner.AddCommandHandler<string>("Act", SetActor); //yarn command for setting character sprite / portrait
 
         Debug.Log("Loading NPC Sprites:");
-        string[] guids1 = AssetDatabase.FindAssets("t:sprite", new[] { "Assets/Art/Sprites" });
+        string[] guids1 = AssetDatabase.FindAssets("t:sprite", new[] { "Assets/Art/NPCs" });
 
         foreach (string guid1 in guids1)
         {
@@ -32,7 +32,7 @@ public class CharacterPortraits : DialogueViewBase
             Debug.Log(npc.name);
         }
 
-        Debug.Log("Done Loading");
+        Debug.Log("Done Loading NPC's");
     }
 
     public void SetActor(string actorName)
