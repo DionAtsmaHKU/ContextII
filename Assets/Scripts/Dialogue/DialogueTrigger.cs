@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Profiling.LowLevel;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] string eventName;
+    public InteractPrompt prompt = new InteractPrompt();
     private bool player_present = false;
 
     public UnityEvent onTriggerDialogue;
@@ -16,7 +18,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             player_present = true;
             Debug.Log("player entered dialoguetrigger");
-            //show button prompt to start dialogue
+            prompt.ShowPrompt();
         }
     }
 
@@ -26,7 +28,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             player_present = false;
             Debug.Log("player exited dialoguetrigger");
-            //hide button prompt
+            prompt.HidePrompt();
         }
     }
 
@@ -36,6 +38,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                prompt.HidePrompt();
                 TriggerDialogue();
             }
         }
