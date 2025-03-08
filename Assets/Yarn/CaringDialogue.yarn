@@ -1,0 +1,22 @@
+﻿title: Caring1
+tags:
+---
+The kid holds out their plush to you
+    -> Accept the plush rabbit
+        Cara: Can you place it on the pedestal? So it won't be lonely without the statue.
+        <<jump plush>>
+    -> But that is your rabbit! Why give it to me?
+        Cara: Can you place it on the pedestal? So it won't be lonely without the statue.
+        They have a determined look in their eye. Cara is serious about this.
+            -> Thank you (Accept the plush rabbit)
+            <<jump plush>>
+            -> I cannot take this! Then it won't be there to keep *you* company (Do not accept the plush rabbit)
+                Cara: Yes, but...
+                The kid hesitates (you can come back and ask Cara for the plush later)
+===
+
+title: plush
+---
+<<Item Plush>>
+You got an item!
+===

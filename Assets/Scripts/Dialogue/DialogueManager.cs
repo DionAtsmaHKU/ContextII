@@ -17,4 +17,9 @@ public class DialogueManager : MonoBehaviour
     {
         runner.StartDialogue("Cocreating1");
     }
+
+    public void CaringDialogue()
+    {
+        runner.StartDialogue("Caring1");
+    }
 }
