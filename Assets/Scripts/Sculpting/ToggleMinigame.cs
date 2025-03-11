@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +11,7 @@ public class ToggleMinigame : MonoBehaviour
     [SerializeField] GameObject inventoryParent;
     public bool inGame;
 
+    public List<Item> sculptList = new List<Item>();
     public List<Item> inventory = new List<Item>();
     public List<Transform> itemSlots = new List<Transform>();
 
@@ -26,7 +26,6 @@ public class ToggleMinigame : MonoBehaviour
             camA.enabled = !camA.enabled;
             camB.enabled = !camA.enabled;
             inGame = false;
-            
         }
         else
         {
@@ -42,27 +41,38 @@ public class ToggleMinigame : MonoBehaviour
 
     private void OpenInventory()
     {
-        for (int i = 0; i < inventory.Count; i++)
+        foreach (var item in inventory)
         {
-            if (inventory[i].inPlace)
+            if (!item.inPlace && !sculptList.Contains(item))
+            {
+                sculptList.Add(item);
+            }
+        }
+
+        for (int i = 0; i < sculptList.Count; i++)
+        {
+            if (sculptList[i].inPlace)
                 continue;
-            inventory[i].transform.position = itemSlots[i].transform.position;
+            sculptList[i].transform.position = itemSlots[i].transform.position;
         }
     }
 
     private void SwapItemParents()
     {
         Sculpture.Instance.itemScores.Clear();
+        sculptList.Clear();
         foreach (var item in inventory)
         {
             if (item.inPlace)
             {
                 item.gameObject.transform.parent = sculpture.transform;
+                sculptList.Remove(item);
                 Sculpture.Instance.itemScores.Add(item.impactScore);
             } 
             else
             {
                 item.gameObject.transform.parent = inventoryParent.transform;
+                sculptList.Add(item);
             }
         }
         Sculpture.Instance.UpdateScore();

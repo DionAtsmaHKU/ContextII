@@ -5,15 +5,22 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
 using Yarn.Unity;
+using System.Drawing.Text;
+using System;
+using UnityEngine.Assertions.Must;
 
 public class ItemCollectionView : DialogueViewBase
 {
     [SerializeField] DialogueRunner runner;
     [SerializeField] Image itemImage;
     private List<Sprite> sprites = new List<Sprite>();
+    [SerializeField] CustomDictionary itemList;
+    private Dictionary<string, Item> allItems = new Dictionary<string, Item>();
+    [SerializeField] ToggleMinigame minigameManager;
 
     private void Awake()
     {
+        allItems = itemList.ToDictionary();
         runner.AddCommandHandler<string>("Item", GetItem);
 
         itemImage.enabled = false;
@@ -43,6 +50,7 @@ public class ItemCollectionView : DialogueViewBase
         }
 
         print("give item: ");
+        minigameManager.inventory.Add(allItems[itemName]);
 
         //iterate over list of sprites to find one that matches itemName
         for (int i = 0; i < sprites.Count; i++)
@@ -60,4 +68,28 @@ public class ItemCollectionView : DialogueViewBase
     {
         itemImage.enabled = false;
     }
+}
+
+[Serializable]
+public class CustomDictionary
+{
+    [SerializeField] List<CustomDictionaryItem> items;
+        
+    public Dictionary<string, Item> ToDictionary()
+    {
+        Dictionary<string, Item> newDict = new Dictionary<string, Item>();
+
+        foreach (CustomDictionaryItem item in items)
+        {
+            newDict.Add(item.name, item.item);
+        }
+        return newDict;
+    }
+}
+
+[Serializable]
+public class CustomDictionaryItem
+{
+    [SerializeField] public string name;
+    [SerializeField] public Item item;
 }
