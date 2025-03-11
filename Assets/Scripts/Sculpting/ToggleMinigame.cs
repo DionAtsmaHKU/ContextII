@@ -10,6 +10,7 @@ public class ToggleMinigame : MonoBehaviour
     [SerializeField] GameObject sculpture;
     [SerializeField] GameObject inventoryParent;
     public bool inGame;
+    public int currentPage = 1;
 
     public List<Item> sculptList = new List<Item>();
     public List<Item> inventory = new List<Item>();
@@ -29,7 +30,7 @@ public class ToggleMinigame : MonoBehaviour
         }
         else
         {
-            OpenInventory();
+            OpenInventory(1);
 
             minigameObjects.SetActive(true);
             platform.SetActive(false);
@@ -39,8 +40,12 @@ public class ToggleMinigame : MonoBehaviour
         }
     }
 
-    private void OpenInventory()
+    public void OpenInventory(int page)
     {
+        if (page <= 0 || page > 5)
+            return;
+
+        currentPage = page;
         foreach (var item in inventory)
         {
             if (!item.inPlace && !sculptList.Contains(item))
@@ -49,11 +54,28 @@ public class ToggleMinigame : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < sculptList.Count; i++)
+        foreach (var item in sculptList)
+        {
+            if (item.inPlace)
+                continue;
+            item.gameObject.SetActive(false);
+        }
+
+        int startIndex = 0 + (page-1) * 6;
+        int endIndex = sculptList.Count;
+        if (endIndex > page * 6)
+        {
+            endIndex = page * 6;
+        }
+
+        Debug.Log("start: " + startIndex + ", end: " + endIndex);
+
+        for (int i = startIndex; i < endIndex; i++)
         {
             if (sculptList[i].inPlace)
                 continue;
-            sculptList[i].transform.position = itemSlots[i].transform.position;
+            sculptList[i].transform.position = itemSlots[i%6].transform.position;
+            sculptList[i].gameObject.SetActive(true);
         }
     }
 

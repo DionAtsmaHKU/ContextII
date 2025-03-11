@@ -22,6 +22,15 @@ public class PlayerController : MonoBehaviour
         {
             toggleScript.Toggle();
         }
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            toggleScript.OpenInventory(toggleScript.currentPage + 1);
+        }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            toggleScript.OpenInventory(toggleScript.currentPage - 1);
+        }
     }
 
     private void Move()
