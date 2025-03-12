@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Profiling.LowLevel;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.ProBuilder.MeshOperations;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,8 +11,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] ToggleMinigame toggleScript;
     [SerializeField] bool MovementEnabled = true;
+    [SerializeField] MeshRenderer mr;
     public bool inSculptRange;
     private float sprintSpeed;
+    [SerializeField] InteractPrompt prompt;
 
     private void Start()
     {
@@ -25,6 +29,12 @@ public class PlayerController : MonoBehaviour
             Move();
         }
 
+        if (inSculptRange && !toggleScript.inGame)
+        {
+            prompt.ShowPrompt();
+        }
+        else { prompt.HidePrompt(); }
+
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             speed = sprintSpeed;
@@ -38,6 +48,16 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && inSculptRange)
         {
             toggleScript.Toggle();
+            if (MovementEnabled)
+            {
+                MovementEnabled = false;
+                mr.enabled = false;
+            } 
+            else
+            {
+                MovementEnabled = true;
+                mr.enabled = true;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.N))
