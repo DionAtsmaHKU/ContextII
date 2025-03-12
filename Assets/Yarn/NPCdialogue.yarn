@@ -1,7 +1,12 @@
-﻿title: Start
+title: Start
 tags:
 ---
-
+You arrive at the town square, eyeing the destruction. 
+Rubble is scattered around the plaza. The centerpiece of it all a severed stone head, lying face down next to the statue's pedestal.
+Someone wrecked your town's statue.
+You can't say you feel sorry for it.
+No, you won't miss the statue. But the square does look empty without it.
+Maybe you could replace it somehow?
 ===
 
 title: Sculpture
@@ -49,7 +54,7 @@ Patch of grass: You lie down, enjoying the feel of the grass beneath your hands,
 Patch of grass: You almost doze off.
 Patch of grass: Do you want to get up?
     -> Yes
-        Patch of grass: The patch of grass has a you shaped dent in it. Blades of grass spring up back into place one by one, slowly hiding your grass snow-angel.
+        Patch of grass: The patch of grass has a you shaped dent in it. Blades of grass jump up back into place one by one, slowly hiding your grass snow-angel.
     -> I'll stay a bit longer.
         Patch of grass: You pick some flowers and start braiding them into a chain.
         Patch of grass: You connect the two ends of the chain, creating a loop.
