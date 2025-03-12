@@ -32,4 +32,9 @@ public class DialogueManager : MonoBehaviour
     {
         runner.StartDialogue("Embodying1");
     }
+
+    public void SubvertingDialogue()
+    {
+        runner.StartDialogue("Subverting1");
+    }
 }
