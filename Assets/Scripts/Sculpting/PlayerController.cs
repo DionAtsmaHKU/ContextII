@@ -9,6 +9,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] ToggleMinigame toggleScript;
     [SerializeField] bool MovementEnabled = true;
+    public bool inSculptRange;
+    private float sprintSpeed;
+
+    private void Start()
+    {
+        sprintSpeed = speed * 2;
+    }
 
     // Update is called once per frame
     void Update()
@@ -17,8 +24,18 @@ public class PlayerController : MonoBehaviour
         {
             Move();
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            speed = sprintSpeed;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            speed = sprintSpeed / 2;
+        }
         
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.E) && inSculptRange)
         {
             toggleScript.Toggle();
         }

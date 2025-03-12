@@ -56,6 +56,6 @@ public class Item : MonoBehaviour
         transform.position = new Vector3(
             Mathf.Clamp(transform.position.x, xMin, xMax),
             Mathf.Clamp(transform.position.y, yMin, yMax),
-            0);
+            4.14f);
     }
 }
