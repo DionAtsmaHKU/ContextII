@@ -878,10 +878,10 @@ MonoBehaviour:
     cocreating: 0
     empowering: 0
     subverting: 2
-  xMin: -15.5
-  xMax: -8
-  yMin: 1.5
-  yMax: 5
+  xMin: -16
+  xMax: -7.2
+  yMin: 0.6
+  yMax: 5.2
   cam: {fileID: 330585545}
   toggle: {fileID: 1224960077}
   dragging: 0
@@ -4701,10 +4701,10 @@ MonoBehaviour:
     cocreating: 0
     empowering: 0
     subverting: 0
-  xMin: -15.5
-  xMax: -8
-  yMin: 1.5
-  yMax: 5
+  xMin: -16
+  xMax: -7.2
+  yMin: 0.6
+  yMax: 5.2
   cam: {fileID: 330585545}
   toggle: {fileID: 1224960077}
   dragging: 0
@@ -5141,10 +5141,10 @@ MonoBehaviour:
     cocreating: 0
     empowering: 0
     subverting: 0
-  xMin: -15.5
-  xMax: -8
-  yMin: 1.5
-  yMax: 5
+  xMin: -16
+  xMax: -7.2
+  yMin: 0.6
+  yMax: 5.2
   cam: {fileID: 330585545}
   toggle: {fileID: 1224960077}
   dragging: 0
@@ -7696,10 +7696,10 @@ MonoBehaviour:
     cocreating: 0
     empowering: 1
     subverting: 3
-  xMin: -15.5
-  xMax: -8
-  yMin: 1.5
-  yMax: 5
+  xMin: -16
+  xMax: -7.2
+  yMin: 0.6
+  yMax: 5.2
   cam: {fileID: 330585545}
   toggle: {fileID: 1224960077}
   dragging: 0
@@ -14483,10 +14483,10 @@ MonoBehaviour:
     cocreating: 0
     empowering: 0
     subverting: 2
-  xMin: -15.5
-  xMax: -8
-  yMin: 1.5
-  yMax: 5
+  xMin: -16
+  xMax: -7.2
+  yMin: 0.6
+  yMax: 5.2
   cam: {fileID: 330585545}
   toggle: {fileID: 1224960077}
   dragging: 0
@@ -15412,10 +15412,10 @@ MonoBehaviour:
     cocreating: 0
     empowering: 0
     subverting: 0
-  xMin: -15.5
-  xMax: -8
-  yMin: 1.5
-  yMax: 5
+  xMin: -16
+  xMax: -7.2
+  yMin: 0.6
+  yMax: 5.2
   cam: {fileID: 330585545}
   toggle: {fileID: 1224960077}
   dragging: 0
@@ -17714,10 +17714,10 @@ MonoBehaviour:
     cocreating: 0
     empowering: 0
     subverting: 2
-  xMin: -15.5
-  xMax: -8
-  yMin: 1.5
-  yMax: 5
+  xMin: -16
+  xMax: -7.2
+  yMin: 0.6
+  yMax: 5.2
   cam: {fileID: 330585545}
   toggle: {fileID: 1224960077}
   dragging: 0
@@ -18537,10 +18537,10 @@ MonoBehaviour:
     cocreating: 1
     empowering: 0
     subverting: 0
-  xMin: -15.5
-  xMax: -8
-  yMin: 1.5
-  yMax: 5
+  xMin: -16
+  xMax: -7.2
+  yMin: 0.6
+  yMax: 5.2
   cam: {fileID: 330585545}
   toggle: {fileID: 1224960077}
   dragging: 0
@@ -18967,10 +18967,10 @@ MonoBehaviour:
     cocreating: 0
     empowering: 0
     subverting: 2
-  xMin: -15.5
-  xMax: -8
-  yMin: 1.5
-  yMax: 5
+  xMin: -16
+  xMax: -7.2
+  yMin: 0.6
+  yMax: 5.2
   cam: {fileID: 330585545}
   toggle: {fileID: 1224960077}
   dragging: 0
@@ -19682,10 +19682,10 @@ MonoBehaviour:
     cocreating: 0
     empowering: 1
     subverting: 0
-  xMin: -15.5
-  xMax: -8
-  yMin: 1.5
-  yMax: 5
+  xMin: -16
+  xMax: -7.2
+  yMin: 0.6
+  yMax: 5.2
   cam: {fileID: 330585545}
   toggle: {fileID: 1224960077}
   dragging: 0
@@ -19834,10 +19834,10 @@ MonoBehaviour:
     cocreating: 1
     empowering: 0
     subverting: 0
-  xMin: -15.5
-  xMax: -8
-  yMin: 1.5
-  yMax: 5
+  xMin: -16
+  xMax: -7.2
+  yMin: 0.6
+  yMax: 5.2
   cam: {fileID: 330585545}
   toggle: {fileID: 1224960077}
   dragging: 0
@@ -20300,10 +20300,10 @@ MonoBehaviour:
     cocreating: 0
     empowering: 0
     subverting: 2
-  xMin: -15.5
-  xMax: -8
-  yMin: 1.5
-  yMax: 5
+  xMin: -16
+  xMax: -7.2
+  yMin: 0.6
+  yMax: 5.2
   cam: {fileID: 330585545}
   toggle: {fileID: 1224960077}
   dragging: 0
