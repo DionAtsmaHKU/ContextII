@@ -1,27 +1,7 @@
 ﻿title: Start
 tags:
 ---
-<<Act Imagining>>
-Narrator: Hi! Did you hear the statue in the town square has been vandalized?
-    -> I'm actually making a new statue to replace it!
-        <<Act Empowering>>
-        Narrator: That's a good idea! I'm kind of glad that ugly thing is gone, but the square looks so empty now...
-            -> I agree! F*ck that statue though.
-                <<jump Angry>>
-            -> Say nothing.
-                <<jump Guilty>>
-===
 
-title: Angry
----
-<<Act Subverting>>
-Narrator: Yeah, it was pretty bad all right.
-===
-
-title: Guilty
----
-<<Act Cocreating>>
-Narrator: Why so quiet? Does somebody have a guilty concience?
 ===
 
 title: Sculpture
@@ -41,14 +21,38 @@ Cocreating: Hello player! What are you up to?
             -> Will do!
             -> I think I'll manage.
             -> Actually, I am looking for items to include in the new statue. Do you have any idea's?
-                <<jump Item>>
+                <<jump Strijkbout>>
 ===
 
-title: Item
+title: Strijkbout
 ---
 <<Act Cocreating>>
 Cocreating: I had something lying around, let me see...
 <<Item Strijkbout>>
 Cocreating: Here it is! I don't use it anymore, so you can have it.
     -> Thank you!
+===
+
+title: Grass
+---
+Patch of grass: A patch of grass with a few clumps of flowers. Speckled with sunshine.
+Patch of grass: Do you want to lie down?
+    -> Yes
+        <<jump FlowerCrown>>
+    -> No
+        Patch of grass: The patch of grass gets it. You have things to do.
+===
+
+title: FlowerCrown
+---
+Patch of grass: You lie down, enjoying the feel of the grass beneath your hands, tickling your cheeks.
+Patch of grass: You almost doze off.
+Patch of grass: Do you want to get up?
+    -> Yes
+        Patch of grass: The patch of grass has a you shaped dent in it. Blades of grass spring up back into place one by one, slowly hiding your grass snow-angel.
+    -> I'll stay a bit longer.
+        Patch of grass: You pick some flowers and start braiding them into a chain.
+        Patch of grass: You connect the two ends of the chain, creating a loop.
+        <<Item FlowerCrown>>
+        You got an item!
 ===

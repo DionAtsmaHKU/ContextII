@@ -9,6 +9,7 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] string eventName;
     public InteractPrompt prompt = new InteractPrompt();
     private bool player_present = false;
+    private bool in_dialogue = false;
 
     public UnityEvent onTriggerDialogue;
 
@@ -34,7 +35,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (player_present == true)
+        if (player_present == true && in_dialogue == false)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -46,8 +47,14 @@ public class DialogueTrigger : MonoBehaviour
 
     private void TriggerDialogue()
     {
+        //in_dialogue = true;
         Debug.Log("Lets talk to / about:" + eventName);
         //send event with dialogue identifyer (string name)
         onTriggerDialogue.Invoke();
+    }
+
+    public void OnDialogueEnd()
+    {
+        in_dialogue = false;
     }
 }

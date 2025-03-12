@@ -13,6 +13,11 @@ public class DialogueManager : MonoBehaviour
         runner.StartDialogue("Sculpture");
     }
 
+    public void GrassDialogue()
+    {
+        runner.StartDialogue("Grass");
+    }
+
     public void CocreatingDialogue()
     {
         runner.StartDialogue("Cocreating1");
