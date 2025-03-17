@@ -28,18 +28,26 @@ public class DialogueManager : MonoBehaviour
         runner.StartDialogue("Caring1");
     }
 
-    public void InspiringDialogue()
-    {
-        runner.StartDialogue("Inspiring1");
-    }
-
     public void EmbodyingDialogue()
     {
         runner.StartDialogue("Embodying1");
+    }
+    public void EmpoweringDialogue()
+    {
+        runner.StartDialogue("Empowering1");
     }
 
     public void SubvertingDialogue()
     {
         runner.StartDialogue("Subverting1");
+    }
+
+    public void ImaginingDialogue()
+    {
+        runner.StartDialogue("Imagining1");
+    }
+    public void InspiringDialogue()
+    {
+        runner.StartDialogue("Inspiring1");
     }
 }

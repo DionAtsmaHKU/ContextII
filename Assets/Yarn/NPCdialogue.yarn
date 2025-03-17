@@ -17,27 +17,6 @@ Sculpture: I am broken...
     -> You deserved it.
 ===
 
-title: Cocreating1
----
-<<Act Cocreating>>
-Cocreating: Hello player! What are you up to?
-    -> I am making a replacement for the statue in the town square!
-        Cocreating: That is such a good idea! If you need any help, let me know!
-            -> Will do!
-            -> I think I'll manage.
-            -> Actually, I am looking for items to include in the new statue. Do you have any idea's?
-                <<jump Strijkbout>>
-===
-
-title: Strijkbout
----
-<<Act Cocreating>>
-Cocreating: I had something lying around, let me see...
-<<Item Strijkbout>>
-Cocreating: Here it is! I don't use it anymore, so you can have it.
-    -> Thank you!
-===
-
 title: Grass
 ---
 Patch of grass: A patch of grass with a few clumps of flowers. Speckled with sunshine.

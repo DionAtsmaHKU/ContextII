@@ -1,17 +1,21 @@
-﻿title: Subverting1
+﻿title: Subverting0
+---
+Vert: Sometimes things need to be torn down so better things can be built in their place.
+===
+
+title: Subverting1
 tags:
 ---
 <<Act Subverting>>
-Subverting is standing next to the broken statue, grinning.
-Subverting: I can't believe someone had the balls to topple the statue and that it wasn't me!
+Vert: I can't believe someone had the balls to topple the statue and that it wasn't me!
     -> Could it have been an accident?
-        Subverting: I highly doubt it.
+        Vert: I highly doubt it.
     -> It wasn't you?
-        Subverting: Nope. 
-Subverting: I found this crowbar lying next to the statue.
+        Vert: Nope. 
+Vert: I found this crowbar lying next to the statue.
     -> That's evidence! You should probably report that.
     -> Wicked! You should hang that up on your wall or something.
-Subverting: Actually, I thought you might want it for your statue project.
+Vert: Actually, I thought you might want it for your statue project.
     -> Hell yes!
         <<jump Crowbar>>
     -> No, you can keep it. You're the one who found it after all.

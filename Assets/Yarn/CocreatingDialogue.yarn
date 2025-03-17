@@ -1,0 +1,37 @@
+title: Cocreating0
+---
+<<Act Cocreating>>
+Coach: I'll be here if you need me.
+===
+
+
+title: Cocreating1
+---
+<<Act Cocreating>>
+Coach: Hello dear! What are you up to?
+    -> I came to see what all the ruckus was about. I can't believe the statue is gone.
+Coach: Me neither. I know most people weren't a fan of it, but it still feels like a waste.
+    -> I agree, someone still put time and effort into making it.
+    -> I don't know, I'm mostly glad it's gone.
+===
+
+title: Cocreating2
+---
+<<Act Cocreating>>
+Coach: Hello dear! What are you up to?
+    -> I am making a replacement for the statue in the town square!
+        Coach: That is such a good idea! If you need any help, let me know!
+            -> Will do!
+            -> I think I'll manage.
+            -> Actually, I am looking for items to include in the new statue. Do you have any idea's?
+                <<jump Strijkbout>>
+===
+
+title: Strijkbout
+---
+<<Act Cocreating>>
+Coach: I had something lying around, let me see...
+<<Item Strijkbout>>
+Coach: Here it is! I don't use it anymore, so you can have it.
+    -> Thank you!
+===

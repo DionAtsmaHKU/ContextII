@@ -1,0 +1,18 @@
+﻿title: Imagining0
+---
+Gini: BOOM! Whoosh! Swoosh. Ptssssj...
+Gini: Magic powers activated!
+Gini seems absorbed in their own world.
+===
+
+title: Imagining1
+---
+<<declare $D1Done = false as bool>>
+<<if $D1Done == true>>
+<<jump Imagining0 >>
+<<endif>>
+Gini: Tonight, a robot came and trampled the statue.
+Gini: She was a hundred meter tall and had had guns for arms
+Gini: And a unicorn horn from which she could shoot lasers.
+<<set $D1Done = true>>
+===
