@@ -30,6 +30,6 @@ public class TooltipSystem : MonoBehaviour
 
     public static void Hide()
     {
-        current.tooltip.SetText(" "," ");
+        current.tooltip.SetText("Drag & Drop items to sculpt!\r\nRotate items using R and T", "Sculpting");
     }
 }

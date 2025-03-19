@@ -80,6 +80,7 @@ public class PlayerController : MonoBehaviour
     public void DisableMove()
     {
         Debug.Log("disable movement");
+        rb.velocity = Vector3.zero;
         MovementEnabled = false;
     }
 
