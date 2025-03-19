@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Transactions;
 using UnityEngine;
+using Yarn;
 
 public class TooltipSystem : MonoBehaviour
 {
@@ -25,11 +26,10 @@ public class TooltipSystem : MonoBehaviour
     public static void Show(string content, string header = "")
     {
         current.tooltip.SetText(content, header);
-        current.tooltip.gameObject.SetActive(true);
     }
 
     public static void Hide()
     {
-        current.tooltip.gameObject.SetActive(false);
+        current.tooltip.SetText(" "," ");
     }
 }

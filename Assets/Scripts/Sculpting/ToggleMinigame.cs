@@ -9,6 +9,7 @@ public class ToggleMinigame : MonoBehaviour
     [SerializeField] GameObject platform;
     [SerializeField] GameObject sculpture;
     [SerializeField] GameObject inventoryParent;
+    [SerializeField] GameObject tooltip;
     public bool inGame;
     public int currentPage = 1;
 
@@ -24,6 +25,7 @@ public class ToggleMinigame : MonoBehaviour
 
             minigameObjects.SetActive(false);
             platform.SetActive(true);
+            tooltip.SetActive(false);
             camA.enabled = !camA.enabled;
             camB.enabled = !camA.enabled;
             inGame = false;
@@ -34,6 +36,7 @@ public class ToggleMinigame : MonoBehaviour
 
             minigameObjects.SetActive(true);
             platform.SetActive(false);
+            tooltip.SetActive(true);
             camA.enabled = !camA.enabled;
             camB.enabled = !camA.enabled;
             inGame = true;
