@@ -1,4 +1,4 @@
-﻿title: Imagining0
+title: Imagining0
 ---
 Gini: BOOM! Whoosh! Swoosh. Ptssssj...
 Gini: Magic powers activated!
@@ -15,4 +15,39 @@ Gini: Tonight, a robot came and trampled the statue.
 Gini: She was a hundred meter tall and had had guns for arms
 Gini: And a unicorn horn from which she could shoot lasers.
 <<set $D1Done = true>>
+===
+
+title: Imagining2
+---
+Gini is digging holes in the dirt
+    -> What are you digging holes for?
+        <<jump Seeds>>
+    -> Join her
+        Gini and you dig holes in the dirt.
+        It feels kind of nice to be so close to the ground. It's freeing to dig just for the hell of it.
+        It's a lot like sculpting with clay actually. 
+        You try to make a mud sculpture, but it collapses quickly.
+        Gini examines the holes that you made.
+        Gini: Those holes aren't good. The holes need to be <i>really<i> deep!
+        Gini: Here, take this. It's a magical tool for making really really deep holes.
+        <<jump Tool>>
+    -> Leave her be
+===
+
+title: Tool
+---
+<<Item Tool>>
+Magical tool for making really really deep holes. Apparently.: You got an item!
+===
+
+title: Seeds
+---
+Gini: Coach gave me seeds to plant. They are magical.
+     -> How so?
+     Gini: They grow into very very big talking trees.
+     Gini: And those trees grow little people instead of apples.
+     Gini: That's where babies come from.
+     Gini: You can have some of the seeds if you want.
+<<Item Seeds>>
+Budding seeds: You got an item!
 ===
