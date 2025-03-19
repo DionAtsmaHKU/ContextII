@@ -1,0 +1,26 @@
+﻿title: Organising0
+tags:
+---
+Oran: Would now be a good time...?
+===
+
+title: Organising1
+---
+Oran: ...
+Oran: Oh sorry, I was lost in thought.
+    -> What were you thinking about?
+Oran: I was thinking that, now that everyone is gathered here, it might be a good time to gather signatures for the petition.
+    -> Petition?
+        Oran: I made a petition to protest against the use of pesticides in the neighbouring field.
+        Oran: The plants around town have been stuggling since the farm got a new owner. 
+    -> I don't know what this is about, but I'll sign!
+        <<jump Petition>>
+    -> Now is not a good time.
+===
+
+title: Petition
+---
+Oran: Here's a copy!
+<<Item Petition>>
+Petition: You got an item!
+===
