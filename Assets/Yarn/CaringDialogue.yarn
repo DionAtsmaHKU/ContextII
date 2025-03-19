@@ -1,10 +1,25 @@
-﻿title: Caring0
+﻿title: CaringDialogue
 ---
-Cara looks a little lost without their stuffed rebbit.
+<<Act Caring>>
+
+<<declare $Ca1Done = false as bool>>
+<<declare $Ca2Done = false as bool>>
+<<declare $EmpCar = false as bool>>
+<<if $Ca1Done == false>>
+<<jump Caring1 >>
+<<elseif $EmpCar == true>>
+<<jump Caring2>>
+<<else>>
+<<jump Caring0>>
+<<endif>>
+===
+
+title: Caring0
+---
+Cara looks a little lost without their stuffed rabbit.
 ===
 
 title: Caring1
-tags:
 ---
 The kid holds out their plush to you
     -> Accept the plush rabbit
@@ -14,7 +29,7 @@ The kid holds out their plush to you
         Cara: Can you place it on the pedestal? So it won't be lonely without the statue.
         They have a determined look in their eye. Cara is serious about this.
             -> Thank you (Accept the plush rabbit)
-            <<jump plush>>
+                <<jump plush>>
             -> I cannot take this! Then it won't be there to keep *you* company (Do not accept the plush rabbit)
                 Cara: Yes, but...
                 The kid hesitates (you can come back and ask Cara for the plush later)
@@ -24,10 +39,13 @@ title: plush
 ---
 <<Item Rabbit>>
 Rabbit: You got an item!
+<<set $Ca1Done = true>>
 ===
 
 
 title: Caring2
 ---
-
+Cara looks a little lost without their stuffed rabbit.
+    -> I've got something for you. (give them the stuffed rabbit back)
+    -> Move on (You can always give it back later)
 ===

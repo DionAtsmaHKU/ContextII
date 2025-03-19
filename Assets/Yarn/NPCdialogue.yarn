@@ -19,12 +19,15 @@ Sculpture: I am broken...
 
 title: Grass
 ---
+<<declare $CrownGot = false>>
 Patch of grass: A patch of grass with a few clumps of flowers. Speckled with sunshine.
+<<if $CrownGot == false>>
 Patch of grass: Do you want to lie down?
     -> Yes
         <<jump FlowerCrown>>
     -> No
         Patch of grass: The patch of grass gets it. You have things to do.
+<<endif>>
 ===
 
 title: FlowerCrown
@@ -38,5 +41,6 @@ Patch of grass: Do you want to get up?
         Patch of grass: You pick some flowers and start braiding them into a chain.
         Patch of grass: You connect the two ends of the chain, creating a loop.
         <<Item FlowerCrown>>
-        You got an item!
+        Flowercrown: You got an item!
+        <<set $CrownGot = true>>
 ===

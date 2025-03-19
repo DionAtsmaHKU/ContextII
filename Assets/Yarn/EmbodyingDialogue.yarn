@@ -1,13 +1,25 @@
-﻿title: Embodying0
+﻿title: EmbodyingDialogue
+---
+<<Act Embodying>>
+<<declare $Emb1Done = false>>
+
+<<if $Emb1Done == false>>
+<<jump Embodying1>>
+<<else>>
+<<jump Embodying0>>
+<<endif>>
+===
+
+title: Embodying0
 ---
 Em: What would it feel like to be a statue?
 ===
 
 title: Embodying1
-tags:
 ---
 Em: Someone really went to town on that statue. Not just to town, to town square!
 Em: ...
 Em: Get it?
 Em: Anyway. Do you think I could make money by standing on that pedestal as one of those living statues?
+<<set $Emb1Done = true>>
 ===

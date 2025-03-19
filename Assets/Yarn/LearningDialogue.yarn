@@ -1,5 +1,21 @@
-﻿title: LearningDialogue
-tags:
+title: LearningDialogue
+---
+<<Act Learning>>
+<<declare $Le1Done = false>>
+
+<<if $Le1Done == false>>
+<<jump Subverting1>>
+<<else>>
+<<jump Subverting0>>
+<<endif>>
+===
+
+title: Learning0
+---
+
+===
+
+title: Learning1
 ---
 
 ===

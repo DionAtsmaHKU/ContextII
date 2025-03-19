@@ -1,3 +1,21 @@
+title: ImaginingDialogue
+---
+<<Act Imagining>>
+
+<<declare $Im1Done = false as bool>>
+<<declare $Im2Done = false as bool>>
+<<declare $ToolGot = false as bool>>
+<<declare $ImaginingQuest = false as bool>>
+
+<<if $Im1Done == false>>
+<<jump Imagining1 >>
+<<elseif $ImaginingQuest == true>>
+<<jump Imagining2>>
+<<else>>
+<<jump Imagining0>>
+<<endif>>
+===
+
 title: Imagining0
 ---
 Gini: BOOM! Whoosh! Swoosh. Ptssssj...
@@ -7,14 +25,10 @@ Gini seems absorbed in their own world.
 
 title: Imagining1
 ---
-<<declare $D1Done = false as bool>>
-<<if $D1Done == true>>
-<<jump Imagining0 >>
-<<endif>>
 Gini: Tonight, a robot came and trampled the statue.
 Gini: She was a hundred meter tall and had had guns for arms
 Gini: And a unicorn horn from which she could shoot lasers.
-<<set $D1Done = true>>
+<<set $Im1Done = true>>
 ===
 
 title: Imagining2
@@ -22,6 +36,7 @@ title: Imagining2
 Gini is digging holes in the dirt
     -> What are you digging holes for?
         <<jump Seeds>>
+    <<if $ToolGot == false>>
     -> Join her
         Gini and you dig holes in the dirt.
         It feels kind of nice to be so close to the ground. It's freeing to dig just for the hell of it.
@@ -31,11 +46,13 @@ Gini is digging holes in the dirt
         Gini: Those holes aren't good. The holes need to be <i>really<i> deep!
         Gini: Here, take this. It's a magical tool for making really really deep holes.
         <<jump Tool>>
+    <<endif>>
     -> Leave her be
 ===
 
 title: Tool
 ---
+<<set $ToolGot = true>>
 <<Item Tool>>
 Magical tool for making really really deep holes. Apparently.: You got an item!
 ===

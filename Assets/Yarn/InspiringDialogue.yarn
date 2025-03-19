@@ -1,4 +1,15 @@
-﻿title: Inspiring1
+﻿title: InspiringDialogue
+---
+<<Act Inspiring>>
+<<declare $In1Done = false>>
+
+<<if $In1Done == false>>
+<<jump Inspiring1>>
+<<else>>
+<<jump Inspiring0>>
+<<endif>>
+===
+title: Inspiring1
 tags:
 ---
 Inspiring: The statue looks kind of cool toppled over like that... don't you think?

@@ -20,34 +20,44 @@ public class DialogueManager : MonoBehaviour
 
     public void CocreatingDialogue()
     {
-        runner.StartDialogue("Cocreating1");
+        runner.StartDialogue("CocreatingDialogue");
     }
 
     public void CaringDialogue()
     {
-        runner.StartDialogue("Caring1");
+        runner.StartDialogue("CaringDialogue");
     }
 
     public void EmbodyingDialogue()
     {
-        runner.StartDialogue("Embodying1");
+        runner.StartDialogue("EmbodyingDialogue");
     }
     public void EmpoweringDialogue()
     {
-        runner.StartDialogue("Empowering1");
+        runner.StartDialogue("EmpoweringDialogue");
     }
 
     public void SubvertingDialogue()
     {
-        runner.StartDialogue("Subverting1");
+        runner.StartDialogue("SubvertingDialogue");
     }
 
     public void ImaginingDialogue()
     {
-        runner.StartDialogue("Imagining1");
+        runner.StartDialogue("ImaginingDialogue");
     }
     public void InspiringDialogue()
     {
-        runner.StartDialogue("Inspiring1");
+        runner.StartDialogue("InspiringDialogue");
+    }
+
+    public void OrganisingDialogue()
+    {
+        runner.StartDialogue("OrganisingDialogue");
+    }
+
+    public void LearningDialogue()
+    {
+        runner.StartDialogue("LearningDialogue");
     }
 }

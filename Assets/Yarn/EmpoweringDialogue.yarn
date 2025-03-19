@@ -1,13 +1,24 @@
-﻿title:Empowering0
+
+title: EmpoweringDialogue
 ---
 <<Act Empowering>>
+<<declare $Emp1Done = false>>
+
+<<if $Emp1Done == false>>
+<<jump Empowering1>>
+<<else>>
+<<jump Empowering0>>
+<<endif>>
+===
+
+title:Empowering0
+---
 Power: I can't wait to see how the statue will turn out!
 ===
 
 
 title: Empowering1
 ---
-<<Act Empowering>>
 Power: Somebody finally took care of the statue huh?
 Power: I'm kind of glad that ugly thing is gone, but the square looks so empty now...
 Power: Hey, you're an artist! Couldn't you make a replacement statue for the town? 
@@ -16,4 +27,14 @@ Power: Hey, you're an artist! Couldn't you make a replacement statue for the tow
     -> I don't know...
         Power: Come on, I just know everyone would love to have a statue that represents the town instead of some historical piece of garbage.
         Power: Who better to make it than the town's own artist?
+<<set $Emp1Done = true>>
+===
+
+title: EmpoweringCaring
+---
+<<set $EmpCar = true>>
+<<Act Empowering>>
+Power: I heard Cara gave you her stuffed rabbit for the statue! It's really kind of her, but...
+Power: She's having a hard time sleeping without it. 
+Power: Could you maybe give it back to her? I know she would never ask it back herself. 
 ===

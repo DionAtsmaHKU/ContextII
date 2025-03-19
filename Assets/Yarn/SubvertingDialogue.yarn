@@ -1,12 +1,22 @@
-﻿title: Subverting0
+﻿title: SubvertingDialogue
+---
+<<Act Subverting>>
+<<declare $Sub1Done = false>>
+
+<<if $Sub1Done == false>>
+<<jump Subverting1>>
+<<else>>
+<<jump Subverting0>>
+<<endif>>
+===
+
+title: Subverting0
 ---
 Vert: Sometimes things need to be torn down so better things can be built in their place.
 ===
 
 title: Subverting1
-tags:
 ---
-<<Act Subverting>>
 Vert: I can't believe someone had the balls to topple the statue and that it wasn't me!
     -> Could it have been an accident?
         Vert: I highly doubt it.
@@ -25,4 +35,5 @@ title: Crowbar
 ---
 <<Item Crowbar>>
 Crowbar: You got an item!
+<<set $Sub1Done = true>>
 ===

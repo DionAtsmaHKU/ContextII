@@ -1,18 +1,29 @@
-title: Cocreating0
+title: CocreatingDialogue
 ---
 <<Act Cocreating>>
+<<declare $Co1Done = false>>
+
+<<if $Co1Done == false>>
+<<jump Cocreating1>>
+<<else>>
+<<jump Cocreating0>>
+<<endif>>
+===
+
+title: Cocreating0
+---
 Coach: I'll be here if you need me.
 ===
 
 
 title: Cocreating1
 ---
-<<Act Cocreating>>
 Coach: Hello dear! What are you up to?
     -> I came to see what all the ruckus was about. I can't believe the statue is gone.
 Coach: Me neither. I know most people weren't a fan of it, but it still feels like a waste.
     -> I agree, someone still put time and effort into making it.
     -> I don't know, I'm mostly glad it's gone.
+<<set $Co1Done = true>>
 ===
 
 title: Cocreating2
