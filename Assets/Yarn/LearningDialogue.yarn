@@ -2,20 +2,48 @@ title: LearningDialogue
 ---
 <<Act Learning>>
 <<declare $Le1Done = false>>
+<<declare $MagnifierGot = false>>
 
 <<if $Le1Done == false>>
-<<jump Subverting1>>
+<<jump Learning1>>
 <<else>>
-<<jump Subverting0>>
+<<jump Learning0>>
 <<endif>>
 ===
 
 title: Learning0
 ---
-
+Lena: Did you want to know something about Elmo Skunk?
+<<if $MagnifierGot == true>>
+Lena: Or did you find out who the vandalist is?
+<<endif>>
+<<jump Questions>>
 ===
 
 title: Learning1
 ---
+Lena: It feels like the end of an era. The statue has stood there for the better part of a decade.
+Lena: Elmo Sunk was a significant player in the history of this town, but I understand the negative sentiment towards displaying his statue in such a central spot.
+Lena: Still, the message could have been more... subtle.
+<<set $Le1Done = true>>
+<<jump Questions>>
+===
 
+title: Questions
+---
+-> Who was Elmo Sunk?
+     Lena: He was an Entrepeneur. He brought the town a lot of it's prosperity. 
+-> Do you know who is responsible for vandalizing the statue? <<if $MagnifierGot == false>>
+     Lena: Are you trying to solve the mystery?
+     She chuckles.
+     I doubt you'll be able to find out, but if you really want to try... maybe this'll help.
+     <<jump Magnifier>>
+-> I don't have any questions (leave)
+===
+
+title: Magnifier
+---
+<<Item Magnifier>>
+Magnifier: You got an Item!
+<<set $MagnifierGot = true>>
 ===
