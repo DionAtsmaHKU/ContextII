@@ -1,0 +1,14 @@
+﻿title: YarnVariables
+---
+<<declare $LearningStat = 0>>
+<<declare $ImaginingStat = 0>>
+<<declare $EmbodyingStat = 0>>
+<<declare $CaringStat = 0>>
+<<declare $OrganisingStat = 0>>
+<<declare $InspiringStat = 0>>
+<<declare $CocreatingStat = 0>>
+<<declare $EmpoweringStat = 0>>
+<<declare $SubvertingStat = 0>>
+
+<<declare $TotalStat = 0>>
+===
