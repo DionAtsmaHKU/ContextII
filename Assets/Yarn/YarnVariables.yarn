@@ -9,6 +9,7 @@
 <<declare $CocreatingStat = 0>>
 <<declare $EmpoweringStat = 0>>
 <<declare $SubvertingStat = 0>>
+<<declare $TestStat = 7>>
 
 <<declare $TotalStat = 0>>
 ===

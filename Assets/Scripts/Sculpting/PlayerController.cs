@@ -79,14 +79,14 @@ public class PlayerController : MonoBehaviour
 
     public void DisableMove()
     {
-        Debug.Log("disable movement");
+        // Debug.Log("disable movement");
         rb.velocity = Vector3.zero;
         MovementEnabled = false;
     }
 
     public void EnableMove()
     {
-        Debug.Log("enable movement");
+        // Debug.Log("enable movement");
         MovementEnabled = true;
     }
 }

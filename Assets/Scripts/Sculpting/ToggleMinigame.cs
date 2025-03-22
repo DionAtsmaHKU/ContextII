@@ -22,6 +22,7 @@ public class ToggleMinigame : MonoBehaviour
         if (inGame) 
         {
             SwapItemParents();
+            SetYarnVariables();
 
             minigameObjects.SetActive(false);
             platform.SetActive(true);
@@ -71,7 +72,7 @@ public class ToggleMinigame : MonoBehaviour
             endIndex = page * 6;
         }
 
-        Debug.Log("start: " + startIndex + ", end: " + endIndex);
+        // Debug.Log("start: " + startIndex + ", end: " + endIndex);
 
         for (int i = startIndex; i < endIndex; i++)
         {
@@ -101,5 +102,22 @@ public class ToggleMinigame : MonoBehaviour
             }
         }
         Sculpture.Instance.UpdateScore();
+    }
+
+    private void SetYarnVariables()
+    {
+        VariableManager.Instance.SetYarnFloat("$LearningStat", Sculpture.Instance.impactScore.learning);
+        VariableManager.Instance.SetYarnFloat("$ImaginingStat", Sculpture.Instance.impactScore.imagining);
+        VariableManager.Instance.SetYarnFloat("$EmbodyingStat", Sculpture.Instance.impactScore.embodying);
+        VariableManager.Instance.SetYarnFloat("$CaringStat", Sculpture.Instance.impactScore.caring);
+        VariableManager.Instance.SetYarnFloat("$OrganisingStat", Sculpture.Instance.impactScore.organizing);
+        VariableManager.Instance.SetYarnFloat("$InspiringStat", Sculpture.Instance.impactScore.inspiring);
+        VariableManager.Instance.SetYarnFloat("$CocreatingStat", Sculpture.Instance.impactScore.cocreating);
+        VariableManager.Instance.SetYarnFloat("$EmpoweringStat", Sculpture.Instance.impactScore.empowering);
+        VariableManager.Instance.SetYarnFloat("$SubvertingStat", Sculpture.Instance.impactScore.subverting);
+        VariableManager.Instance.SetYarnFloat("$TotalStat", Sculpture.Instance.impactScore.Total());
+
+        //float test = VariableManager.Instance.GetYarnFloat("$SubvertingStat");
+        //Debug.Log(test);
     }
 }
