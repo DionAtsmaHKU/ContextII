@@ -1,4 +1,4 @@
-﻿title: YarnVariables
+﻿title: Start
 ---
 <<declare $LearningStat = 0>>
 <<declare $ImaginingStat = 0>>
@@ -12,4 +12,6 @@
 <<declare $TestStat = 7>>
 
 <<declare $TotalStat = 0>>
+
+<<jump StartDialogue>>
 ===

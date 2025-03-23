@@ -6,6 +6,8 @@ title: EmpoweringDialogue
 
 <<if $Emp1Done == false>>
 <<jump Empowering1>>
+<<elseif $CaringStat >= 2 && $Ca1Done == true>> //check caring stat, number is placeholder
+<<jump EmpoweringCaring>>
 <<else>>
 <<jump Empowering0>>
 <<endif>>
