@@ -23,7 +23,7 @@ public class ToggleMinigame : MonoBehaviour
 
     private void Start()
     {
-        runner.AddCommandHandler<string>("Item", HasItem);
+        runner.AddCommandHandler<string>("HasItem", HasItem);
     }
 
     public void Toggle()
