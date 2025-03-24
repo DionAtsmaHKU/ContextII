@@ -13,7 +13,7 @@ public class ItemCollectionView : DialogueViewBase
 {
     [SerializeField] DialogueRunner runner;
     [SerializeField] Image itemImage;
-    private List<Sprite> sprites = new List<Sprite>();
+    private Dictionary<string, Sprite> itemSprites = new Dictionary<string, Sprite>();
     [SerializeField] CustomDictionary itemList;
     private Dictionary<string, Item> allItems = new Dictionary<string, Item>();
     [SerializeField] ToggleMinigame minigameManager;
@@ -26,13 +26,20 @@ public class ItemCollectionView : DialogueViewBase
         itemImage.enabled = false;
 
         Debug.Log("Loading item Sprites:");
-        string[] guids1 = AssetDatabase.FindAssets("t:sprite", new[] { "Assets/Art/Items" });
 
-        foreach (string guid1 in guids1)
+        Sprite[] sprites = Resources.LoadAll<Sprite>("Items");
+        foreach (Sprite s in sprites)
         {
-            //Debug.Log(AssetDatabase.GUIDToAssetPath(guid1));
-            sprites.Add((Sprite)AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(guid1), typeof(Sprite)));
+            itemSprites.Add(s.name, s);
         }
+
+        //string[] guids1 = AssetDatabase.FindAssets("t:sprite", new[] { "Assets/Art/Items" });
+
+        //foreach (string guid1 in guids1)
+        //{
+        //Debug.Log(AssetDatabase.GUIDToAssetPath(guid1));
+        //sprites.Add((Sprite)AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(guid1), typeof(Sprite)));
+        //}
 
         foreach (Sprite item in sprites)
         {
@@ -52,16 +59,10 @@ public class ItemCollectionView : DialogueViewBase
         print("give item: ");
         minigameManager.inventory.Add(allItems[itemName]);
 
-        //iterate over list of sprites to find one that matches itemName
-        for (int i = 0; i < sprites.Count; i++)
-        {
-            if (sprites[i].name == itemName)
-            {
-                print(itemName);
-                var current_item_sprite = sprites[i];
-                itemImage.sprite = current_item_sprite;
-            }
-        }
+        print(itemName);
+        var current_item_sprite = itemSprites[itemName];
+        itemImage.sprite = current_item_sprite;
+
         //put collected item in inventory
     }
     public void onDialogueEnd()

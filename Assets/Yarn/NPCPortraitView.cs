@@ -10,7 +10,7 @@ public class CharacterPortraits : DialogueViewBase
 {
     [SerializeField] DialogueRunner runner;
     [SerializeField] Image portraitImage;
-    private List<Sprite> sprites = new List<Sprite>();
+    private Dictionary<string, Sprite> portraitSprites = new Dictionary<string, Sprite>();
 
     void Awake()
     {
@@ -19,17 +19,24 @@ public class CharacterPortraits : DialogueViewBase
         runner.AddCommandHandler<string>("Act", SetActor); //yarn command for setting character sprite / portrait
 
         Debug.Log("Loading NPC Sprites:");
-        string[] guids1 = AssetDatabase.FindAssets("t:sprite", new[] { "Assets/Art/NPCs" });
 
-        foreach (string guid1 in guids1)
+        Sprite[] sprites = Resources.LoadAll<Sprite>("NPCs"); 
+        foreach (Sprite s in sprites)
         {
-            //Debug.Log(AssetDatabase.GUIDToAssetPath(guid1));
-            sprites.Add((Sprite)AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(guid1), typeof(Sprite)));
+            portraitSprites.Add(s.name, s);
         }
+
+        //string[] guids1 = AssetDatabase.FindAssets("t:sprite", new[] { "Assets/Art/NPCs" });
+
+        //foreach (string guid1 in guids1)
+        //{
+        //Debug.Log(AssetDatabase.GUIDToAssetPath(guid1));
+        //sprites.Add((Sprite)AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(guid1), typeof(Sprite)));
+        //}
 
         foreach (Sprite npc in sprites)
         {
-            Debug.Log(npc.name);
+        Debug.Log(npc.name);
         }
 
         Debug.Log("Done Loading NPC's");
@@ -44,16 +51,10 @@ public class CharacterPortraits : DialogueViewBase
 
         print("set actor to:");
 
-        //iterate over list of sprites to find one that matches actorName
-        for (int i = 0; i < sprites.Count; i++)
-        {
-            if (sprites[i].name == actorName)
-            {
-                print(actorName);
-                var current_actor_sprite = sprites[i];
-                portraitImage.sprite = current_actor_sprite;
-            }
-        }
+        print(actorName);
+        var current_actor_sprite = portraitSprites[actorName];
+        portraitImage.sprite = current_actor_sprite;
+
     }
 
     public void onDialogueEnd()
