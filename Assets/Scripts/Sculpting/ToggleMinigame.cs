@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
+using Yarn.Unity;
 
 public class ToggleMinigame : MonoBehaviour
 {
@@ -10,12 +13,18 @@ public class ToggleMinigame : MonoBehaviour
     [SerializeField] GameObject sculpture;
     [SerializeField] GameObject inventoryParent;
     [SerializeField] GameObject tooltip;
+    [SerializeField] DialogueRunner runner;
     public bool inGame;
     public int currentPage = 1;
 
     public List<Item> sculptList = new List<Item>();
     public List<Item> inventory = new List<Item>();
     public List<Transform> itemSlots = new List<Transform>();
+
+    private void Start()
+    {
+        runner.AddCommandHandler<string>("Item", HasItem);
+    }
 
     public void Toggle()
     {
@@ -102,6 +111,34 @@ public class ToggleMinigame : MonoBehaviour
             }
         }
         Sculpture.Instance.UpdateScore();
+    }
+
+    public void HasItem(string itemName)
+    {
+        foreach(Item item in inventory)
+        {
+            if (item.name == itemName)
+            {
+                if (sculptList.Contains(item))
+                {
+                    return;
+                }
+                inventory.Remove(item);
+                if (itemName == "Shard")
+                {
+                    VariableManager.Instance.SetYarnBool("$HasShard", true);
+                }
+                else if (itemName == "Rabbit")
+                {
+                    VariableManager.Instance.SetYarnBool("$HasRabbit", true);
+                }
+                else if (itemName == "Petition")
+                {
+                    VariableManager.Instance.SetYarnBool("$HasPetition", true);
+                }
+            }
+        }
+        return;
     }
 
     private void SetYarnVariables()
