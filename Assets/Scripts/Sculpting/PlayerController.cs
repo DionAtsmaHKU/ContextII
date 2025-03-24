@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
             speed = sprintSpeed / 2;
         }
         
-        if (Input.GetKeyDown(KeyCode.E) && inSculptRange)
+        if (Input.GetKeyDown(KeyCode.E) && inSculptRange || Input.GetKeyDown(KeyCode.E) && toggleScript.inGame)
         {
             toggleScript.Toggle();
             if (MovementEnabled)

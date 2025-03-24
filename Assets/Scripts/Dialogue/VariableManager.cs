@@ -22,8 +22,8 @@ public class VariableManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*
         variables = FindObjectOfType<InMemoryVariableStorage>();
+        /*
         float testVar = 0;
         variables.TryGetValue("$TestStat", out testVar);
         Debug.Log(testVar);
