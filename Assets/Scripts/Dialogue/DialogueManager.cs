@@ -18,6 +18,11 @@ public class DialogueManager : MonoBehaviour
         runner.StartDialogue("Grass");
     }
 
+    public void ShardDialogue()
+    {
+        runner.StartDialogue("Shard");
+    }
+
     public void CocreatingDialogue()
     {
         runner.StartDialogue("CocreatingDialogue");

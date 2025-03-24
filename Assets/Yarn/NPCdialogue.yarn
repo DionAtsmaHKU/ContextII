@@ -17,6 +17,11 @@ Sculpture: I am broken...
     -> You deserved it.
 ===
 
+title: Shard
+---
+Ceramic Shard: You found an item!
+===
+
 title: Grass
 ---
 <<declare $CrownGot = false>>

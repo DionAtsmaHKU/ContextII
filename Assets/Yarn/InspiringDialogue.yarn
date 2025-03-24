@@ -1,16 +1,54 @@
 ﻿title: InspiringDialogue
 ---
 <<Act Inspiring>>
-<<declare $In1Done = false>>
+<<declare $In2Done = false>>
+<<declare $In3done = false>>
+<<declare $HasShard = false>>
+<<declare $HasAllShards = false>>
 
-<<if $In1Done == false>>
-<<jump Inspiring1>>
+<<if $In2Done == false && $InspiringStat > 2 >> //chack insp stat, 2 is placeholder
+<<jump Inspiring2>>
+<<elseif $In2Done == true && $In3done == false>>
+<<jump Inspiring3>>
 <<else>>
-<<jump Inspiring0>>
+<<jump Inspiring1>>
 <<endif>>
 ===
 title: Inspiring1
 tags:
 ---
-Inspiring: The statue looks kind of cool toppled over like that... don't you think?
+Spire: The statue looks kind of cool toppled over like that... don't you think?
+===
+
+title: Inspiring2
+---
+Spire: I dropped my favorite bowl...
+Spire: ...and managed to lose all of the pieces.
+Spire: Don't ask me how, it's kind of an embarassing story.
+Spire: I really wanted to try to mend it. I am going to miss that bowl.
+<<if $HasShard == true>>
+    -> Could this be a piece of the bowl?
+        Spire: Yes! Thank you so much.
+        Spire: If you can find 5 of these I might be able to mend it.
+<<endif>>
+<<set $In2Done = true>>
+===
+
+title: Inspiring3
+---
+Spire: Those shards should be scattered somewhere around here? Why can't I find them?
+<<if $HasAllShards == true>>
+    -> I found five bowl shards! (give the bowl shards)
+        Spire: Perfect! Let me get my glue.
+        Spire is patiently glueing the pieces tother.
+        <<Item Bowl>>
+        Spire: A few pieces are still missing, so it's not really useable for me anymore. 
+        Spire: Maybe you can find a use for it?
+        Bowl: You got an item!
+        <<set $In3done = true>>
+<<elseif $HasShard == true>>
+    -> Could this be a piece of the bowl?
+        Spire: Yes! Thank you so much.
+        Spire: If you can find 5 of these I might be able to mend it.
+<<endif>>
 ===

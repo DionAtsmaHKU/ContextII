@@ -2,9 +2,16 @@
 ---
 <<Act Organising>>
 <<declare $Or1Done = false>>
+<<declare $Or2Done = false>>
+<<declare $HasPetition = false>>
+<<declare $Or3Done = false>>
 
 <<if $Or1Done == false>>
 <<jump Organising1>>
+<<elseif $Or3Done == true>>
+<<jump OrganisingFinal>>
+<<elseif $OrganisingStat >= 2 && $Or1Done == true>> //check organising stat, number is placeholder
+<<jump Organising2>>
 <<else>>
 <<jump Organising0>>
 <<endif>>
@@ -36,4 +43,47 @@ Oran: Here's a copy!
 <<Item Petition>>
 Petition: You got an item!
 <<set $Or1Done = true>>
+===
+
+title: Organising2
+---
+<<if $Or2Done == true>>
+<<jump Organising3>>
+<<endif>>
+-> How is the petition doing?
+    Oran: Very well! It has enough votes to be sent to the municipality.
+    Oran: Placing it on the statue might have helped with that. So, thank you!
+    Oran: Could you bring me your copy of the petition?
+        -> Sure!
+        -> I would rather keep it
+            Oran: Dont't worry, I give you a replacement.
+    <<set $Or2Done = true>>
+===
+
+title: Organising3
+---
+Oran: Did you bring me the petition?
+    <<if $HasPetition == true>>
+    -> I did!
+        <<jump Petition2>>
+    -> I didn't, sorry
+        Oran: If you bring it to me, we can send it in.
+    <<else>>
+    -> I didn't, sorry
+        Oran: If you bring it to me, we can send it in.
+    <<endif>>
+===
+
+title: Petition2
+---
+Oran: Perfect! I will make sure to deliver it personally.
+Oran: Here, I made a copy of the signed petition for you. 
+<<Item Petition2>>
+Signed Petition: You got an item!
+<<set $Or3Done = true>>
+===
+
+title: OrganisingFinal
+---
+Oran: I am really proud of all of us. With so many votes the municipality cannot ignore our petition!
 ===

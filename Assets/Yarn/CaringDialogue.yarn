@@ -1,7 +1,5 @@
 ﻿title: CaringDialogue
 ---
-<<Act Caring>>
-
 <<declare $Ca1Done = false as bool>>
 <<declare $Ca2Done = false as bool>>
 <<declare $EmpCar = false as bool>>
@@ -16,11 +14,13 @@
 
 title: Caring0
 ---
+<<Act Caring2>>
 Cara looks a little lost without their stuffed rabbit.
 ===
 
 title: Caring1
 ---
+<<Act Caring>>
 The kid holds out their plush to you
     -> Accept the plush rabbit
         Cara: Can you place it on the pedestal? So it won't be lonely without the statue.
