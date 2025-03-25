@@ -27378,8 +27378,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70191bdfdc00895408c3b5ff0db983bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Rabbit
-  description: WOWAW
+  title: watering can
+  description: "TAKE CARE OF THE LITTLE PLANTS WHILE THEY\u2019RE STILL GROWING.
+    THERE SHOULD BE A WELL NEARBY. REPRESENTS CARING."
 --- !u!54 &1037349844
 Rigidbody:
   m_ObjectHideFlags: 0
