@@ -20,7 +20,7 @@ public class CharacterPortraits : DialogueViewBase
 
         Debug.Log("Loading NPC Sprites:");
 
-        Sprite[] sprites = Resources.LoadAll<Sprite>("NPCs"); 
+        Sprite[] sprites = Resources.LoadAll<Sprite>("Portraits"); 
         foreach (Sprite s in sprites)
         {
             portraitSprites.Add(s.name, s);

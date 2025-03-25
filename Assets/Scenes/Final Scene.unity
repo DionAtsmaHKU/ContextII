@@ -12631,6 +12631,16 @@ PrefabInstance:
       propertyPath: eventName
       value: Shard
       objectReference: {fileID: 0}
+    - target: {fileID: 3380861178866504663, guid: 0b9efccc50b9c0949865d9616e2c3bb7,
+        type: 3}
+      propertyPath: onTriggerDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 108272796}
+    - target: {fileID: 3380861178866504663, guid: 0b9efccc50b9c0949865d9616e2c3bb7,
+        type: 3}
+      propertyPath: onTriggerDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShardDialogue
+      objectReference: {fileID: 0}
     - target: {fileID: 3396409577981540109, guid: 0b9efccc50b9c0949865d9616e2c3bb7,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -21043,10 +21053,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dialogue System Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6983878256926379348, guid: d41c0bbb42af94844936b51ad84832e2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -66.4
+      objectReference: {fileID: 0}
     - target: {fileID: 7733270777822324626, guid: d41c0bbb42af94844936b51ad84832e2,
         type: 3}
       propertyPath: m_UiScaleMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7733270777822324626, guid: d41c0bbb42af94844936b51ad84832e2,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 8237637027067021029, guid: d41c0bbb42af94844936b51ad84832e2,
         type: 3}
