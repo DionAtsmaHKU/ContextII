@@ -8,6 +8,8 @@ title: EmpoweringDialogue
 <<jump Empowering1>>
 <<elseif $CaringStat >= 2 && $Ca1Done == true>> //check caring stat, number is placeholder
 <<jump EmpoweringCaring>>
+<<elseif $SusCheckpoint1 == true>>
+<<jump EmpEnv>>
 <<else>>
 <<jump Empowering0>>
 <<endif>>
