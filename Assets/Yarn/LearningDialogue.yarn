@@ -3,9 +3,12 @@ title: LearningDialogue
 <<Act Learning>>
 <<declare $Le1Done = false>>
 <<declare $MagnifierGot = false>>
+<<daclare $Le2Done = false>>
 
 <<if $Le1Done == false>>
 <<jump Learning1>>
+<<elseif $LearningStat > 2>>
+<<jump Learning2>>
 <<else>>
 <<jump Learning0>>
 <<endif>>
@@ -38,6 +41,8 @@ title: Questions
      She chuckles.
      I doubt you'll be able to find out, but if you really want to try... maybe this'll help.
      <<jump Magnifier>>
+-> Can you tell me more about pesticides? <<if $Le2Done == true>>
+     <<jump Questions2>>
 -> I don't have any questions (leave)
 ===
 
@@ -46,4 +51,38 @@ title: Magnifier
 <<Item Magnifier>>
 Magnifier: You got an Item!
 <<set $MagnifierGot = true>>
+===
+
+title: Learning2
+---
+Lena: Did you hear about the petition Oran started?
+Lena: I actually advised him on some of the phrasing. Opinions on pesticides have always been divided but I think we really made a strong case against them.
+<<set $Le2Done = true>>
+<<jump Questions2>>
+===
+
+title: Questions2
+---
+-> What are pesticides?
+     Lena: Pesticides kill insects that would otherwise eat the harvest. What we didn't realise at first is that they also kill useful insects.
+     Lena: After a few years of using them, many of the wild bee species have dissapeared from the surroundings of the town.
+-> Don't we need pesticides if we want to grow food?
+     Lena: Not neccesarily. There are ways to farm that minimise the risk of pests without using poisons.
+     Lena: We have always grown only wheat of the farm. This is called a monoculture. 
+     <<jump Questions2>>
+-> Pesticides suck, I'm glad we're petitioning to get rid of them.
+     Lena: I am glad too, however, they are not all bad. Pesticides kill insects that threaten our crops. 
+     Lena: A few years before we got pesticides, there was a horrible famine because bugs ate all our wheat.
+     Lena: Pesticides provide food security, but unfortunately it comes at the cost of all the insects, not just the pests.
+     <<jump Questions2>>
+-> Can I help the cause in some way?
+     <<jump Pesticide>>
+-> I don't need to know any more about pesticides. Thank you.
+===
+
+title: Pesticide
+---
+<<Item Pesticide>>
+Lena: Maybe you can use this empty canister for your sculpture?
+Lena: Be careful with it though! It might still contain trace chemicals.
 ===

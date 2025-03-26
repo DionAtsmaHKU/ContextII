@@ -5,10 +5,12 @@
 <<declare $In3done = false>>
 <<declare $HasShard = false>>
 
-<<if $In2Done == false && $InspiringStat >= 0 >> //check insp stat, 2 is placeholder
+<<if $In2Done == false && $InspiringStat >= 2 >> //check insp stat, 2 is placeholder
 <<jump Inspiring2>>
 <<elseif $In2Done == true && $In3done == false>>
 <<jump Inspiring3>>
+<<elseif $SusCheckpoint2>>
+<<jump CoEnv>>
 <<else>>
 <<jump Inspiring1>>
 <<endif>>
@@ -52,4 +54,10 @@ Spire: A few pieces are still missing, so it's not really useable for me anymore
 Spire: Maybe you can find a use for it?
 Bowl: You got an item!
 <<set $In3done = true>>
+===
+
+title: InsEnv
+---
+Spire: All this nature around is so inspiring! The town did an amazing job.
+Spire: I can already hear the buzzing of the bugs that will return. Oh and the birdsong!
 ===

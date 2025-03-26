@@ -10,7 +10,7 @@
 <<jump Organising1>>
 <<elseif $Or3Done == true>>
 <<jump OrganisingFinal>>
-<<elseif $OrganisingStat >= 0 && $Or1Done == true>> //check organising stat, number is placeholder
+<<elseif $OrganisingStat >= 2 && $Or1Done == true>> //check organising stat, number is placeholder
 <<jump Organising2>>
 <<else>>
 <<jump Organising0>>
