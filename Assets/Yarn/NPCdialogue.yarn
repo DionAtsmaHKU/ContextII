@@ -19,7 +19,44 @@ Sculpture: I am broken...
 
 title: Shard
 ---
+<<Item Shard>>
 Ceramic Shard: You found an item!
+===
+
+title: WateringCan
+---
+<<Item WateringCan>>
+Watering Can: You found an item!
+===
+
+title: Canvas
+---
+<<Item Canvas>>
+Empty Canvas: You found an item!
+===
+
+title: Kaleidoscope
+---
+<<Item Kaleidoscope>>
+Kaleidoscope: You found an item!
+===
+
+title: Mirror
+---
+<<Item Mirror>>
+Mirror: You found an item!
+===
+
+title: Drawing
+---
+<<Item Drawing>>
+Drawing: You found an item!
+===
+
+title: Megaphone
+---
+<<Item Megaphone>>
+Megaphone: You found an item!
 ===
 
 title: Grass

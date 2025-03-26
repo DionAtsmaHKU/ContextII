@@ -23,6 +23,36 @@ public class DialogueManager : MonoBehaviour
         runner.StartDialogue("Shard");
     }
 
+    public void WateringCanDialogue()
+    {
+        runner.StartDialogue("WateringCan");
+    }
+
+    public void CanvasDialogue()
+    {
+        runner.StartDialogue("Canvas");
+    }
+
+    public void MegaphoneDialogue()
+    {
+        runner.StartDialogue("Megaphone");
+    }
+
+    public void KaleidoscopeDialogue()
+    {
+        runner.StartDialogue("Kaleidoscope");
+    }
+
+    public void DrawingDialogue()
+    {
+        runner.StartDialogue("Drawing");
+    }
+
+    public void MirrorDialogue()
+    {
+        runner.StartDialogue("Mirror");
+    }
+
     public void CocreatingDialogue()
     {
         runner.StartDialogue("CocreatingDialogue");

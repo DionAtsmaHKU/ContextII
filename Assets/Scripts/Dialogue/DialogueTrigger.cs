@@ -7,7 +7,6 @@ using UnityEngine.Events;
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] string eventName;
-    [SerializeField] GameObject InputManager;
     [SerializeField] bool SelfDestruct = false;
     public InteractPrompt prompt = new InteractPrompt();
     private bool player_present = false;

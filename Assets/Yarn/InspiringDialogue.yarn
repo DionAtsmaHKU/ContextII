@@ -4,9 +4,8 @@
 <<declare $In2Done = false>>
 <<declare $In3done = false>>
 <<declare $HasShard = false>>
-<<declare $HasAllShards = false>>
 
-<<if $In2Done == false && $InspiringStat > 2 >> //chack insp stat, 2 is placeholder
+<<if $In2Done == false && $InspiringStat >= 0 >> //check insp stat, 2 is placeholder
 <<jump Inspiring2>>
 <<elseif $In2Done == true && $In3done == false>>
 <<jump Inspiring3>>
@@ -28,8 +27,7 @@ Spire: Don't ask me how, it's kind of an embarassing story.
 Spire: I really wanted to try to mend it. I am going to miss that bowl.
 <<if $HasShard == true>>
     -> Could this be a piece of the bowl?
-        Spire: Yes! Thank you so much.
-        Spire: If you can find 5 of these I might be able to mend it.
+        <<jump bowl>>
 <<endif>>
 <<set $In2Done = true>>
 ===
@@ -37,18 +35,19 @@ Spire: I really wanted to try to mend it. I am going to miss that bowl.
 title: Inspiring3
 ---
 Spire: Those shards should be scattered somewhere around here? Why can't I find them?
-<<if $HasAllShards == true>>
-    -> I found five bowl shards! (give the bowl shards)
-        Spire: Perfect! Let me get my glue.
-        Spire is patiently glueing the pieces tother.
-        <<Item Bowl>>
-        Spire: A few pieces are still missing, so it's not really useable for me anymore. 
-        Spire: Maybe you can find a use for it?
-        Bowl: You got an item!
-        <<set $In3done = true>>
-<<elseif $HasShard == true>>
+<<if $HasShard == true>>
     -> Could this be a piece of the bowl?
-        Spire: Yes! Thank you so much.
-        Spire: If you can find 5 of these I might be able to mend it.
+         <<jump bowl>>
 <<endif>>
+===
+
+title: Bowl
+---
+Spire: It is! Thank you. Let me get my glue.
+Spire is patiently glueing the pieces of the bowl back together.
+<<Item Bowl>>
+Spire: A few pieces are still missing, so it's not really useable for me anymore. 
+Spire: Maybe you can find a use for it?
+Bowl: You got an item!
+<<set $In3done = true>>
 ===
