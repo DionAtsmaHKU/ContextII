@@ -13,6 +13,7 @@ public class InteractPrompt
 
     public void HidePrompt()
     {
-        UI.SetActive(false);
+        if (UI != null) UI.SetActive(false);
+        //UI.SetActive(false);
     }
 }

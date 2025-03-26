@@ -26385,7 +26385,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21917ca78af2a5640b16d4d4d2bff143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Interact: 0
   onInteract:
     m_PersistentCalls:
       m_Calls:
@@ -50844,7 +50843,7 @@ PrefabInstance:
     - target: {fileID: 3380861178866504663, guid: 0b9efccc50b9c0949865d9616e2c3bb7,
         type: 3}
       propertyPath: onTriggerDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MirrorDialogue
+      value: DrawingDialogue
       objectReference: {fileID: 0}
     - target: {fileID: 3396409577981540109, guid: 0b9efccc50b9c0949865d9616e2c3bb7,
         type: 3}

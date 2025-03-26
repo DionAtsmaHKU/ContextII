@@ -11,6 +11,15 @@ public class DialogueTrigger : MonoBehaviour
     public InteractPrompt prompt = new InteractPrompt();
     private bool player_present = false;
 
+    private void Awake()
+    {
+        PlayerInput.OnInteract += TriggerDialogue;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerInput.OnInteract -= TriggerDialogue;
+    }
 
     public UnityEvent onTriggerDialogue;
 

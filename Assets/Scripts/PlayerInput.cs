@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,36 +6,31 @@ using UnityEngine.Events;
 
 public class PlayerInput : MonoBehaviour
 {
-    private bool in_dialogue = false;
-    public bool Interact = false;
+    private bool inDialogue = false;
 
     public UnityEvent onInteract;
+    public static event Action OnInteract;
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (in_dialogue == false) 
+            if (!inDialogue) 
             {
-                onInteract.Invoke();
-                Interact = true;
+                OnInteract.Invoke();
+                //onInteract.Invoke();
             }
-        }
-
-        if (Input.GetKeyUp(KeyCode.E))
-        {
-            Interact = false;
         }
     }
 
     public void onDialogueStart()
     {
-        in_dialogue = true;
+        inDialogue = true;
     }
 
     public void onDialogueEnd()
     {
-        in_dialogue = false;
+        inDialogue = false;
     }
 }
