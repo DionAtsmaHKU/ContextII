@@ -5,6 +5,8 @@ title: CocreatingDialogue
 
 <<if $Co1Done == false>>
 <<jump Cocreating1>>
+<<elseif $SusCheckpoint1 == true>>
+<<jump CoEnv>>
 <<else>>
 <<jump Cocreating0>>
 <<endif>>
@@ -45,4 +47,15 @@ Coach: I had something lying around, let me see...
 <<Item Strijkbout>>
 Coach: Here it is! I don't use it anymore, so you can have it.
     -> Thank you!
+===
+
+title: CoEnv
+---
+Coach:It's so good to see everyone in the town working together!
+    -> Working together?
+        Coach: We're trying to improve the nature in and around town. Lots of people are lending a hand.
+        Coach: Gini for example is planting flower seeds.
+        Coach: And Vert is fixing boarded up windows. 
+        Coach: You can really see the difference already!
+    -> Yeah!!
 ===

@@ -8,6 +8,8 @@
 <<jump Caring1 >>
 <<elseif $EmpCar == true && $HasRabbit == true>>
 <<jump Caring2>>
+<<elseif $SusCheckpoint1 == true>>
+<<jump CarEnv>>
 <<else>>
 <<jump Caring0>>
 <<endif>>

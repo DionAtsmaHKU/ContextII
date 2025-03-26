@@ -13,5 +13,8 @@
 
 <<declare $TotalStat = 0>>
 
+<<declare $SusCheckpoint1 = false>>
+<<declare $SusCheckpoint2 = false>>
+
 <<jump StartDialogue>>
 ===
