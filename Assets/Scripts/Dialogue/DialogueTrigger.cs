@@ -7,9 +7,9 @@ using UnityEngine.Events;
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] string eventName;
+    [SerializeField] GameObject InputManager;
     public InteractPrompt prompt = new InteractPrompt();
     private bool player_present = false;
-    private bool in_dialogue = false;
 
     public UnityEvent onTriggerDialogue;
 
@@ -35,12 +35,19 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (player_present == true && in_dialogue == false)
+        if (player_present == true)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (InputManager != null)
             {
-                prompt.HidePrompt();
-                TriggerDialogue();
+                if (InputManager.GetComponent<PlayerInput>().Interact == true)
+                {
+                    prompt.HidePrompt();
+                    TriggerDialogue();
+                }
+            }
+            else
+            {
+                Debug.Log("InputManager not connected");
             }
         }
     }
@@ -51,10 +58,5 @@ public class DialogueTrigger : MonoBehaviour
         Debug.Log("Lets talk to / about:" + eventName);
         //send event with dialogue identifyer (string name)
         onTriggerDialogue.Invoke();
-    }
-
-    public void OnDialogueEnd()
-    {
-        in_dialogue = false;
     }
 }

@@ -1,0 +1,36 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerInput : MonoBehaviour
+{
+    private bool in_dialogue = false;
+    public bool Interact = false;
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (in_dialogue == false) 
+            {
+                Interact = true;
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            Interact = false;
+        }
+    }
+
+    public void onDialogueStart()
+    {
+        in_dialogue = true;
+    }
+
+    public void onDialogueEnd()
+    {
+        in_dialogue = false;
+    }
+}
