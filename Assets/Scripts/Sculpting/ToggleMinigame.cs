@@ -10,6 +10,8 @@ public class ToggleMinigame : MonoBehaviour
     [SerializeField] GameObject minigameObjects;
     [SerializeField] GameObject platform;
     [SerializeField] GameObject sculpture;
+    [SerializeField] GameObject goodTown;
+    [SerializeField] GameObject badTown;
     [SerializeField] GameObject inventoryParent;
     [SerializeField] GameObject tooltip;
     // [SerializeField] DialogueRunner runner;
@@ -31,6 +33,7 @@ public class ToggleMinigame : MonoBehaviour
         {
             SwapItemParents();
             SetYarnVariables();
+            CheckSusCheckpoint();
 
             minigameObjects.SetActive(false);
             platform.SetActive(true);
@@ -178,6 +181,20 @@ public class ToggleMinigame : MonoBehaviour
             }
         }
         return;
+    }
+
+    private void CheckSusCheckpoint()
+    {
+        if (Sculpture.Instance.impactScore.Total() > 5)
+        {
+            // VariableManager.Instance.SetYarnBool("checkpoint1", true);
+            badTown.SetActive(false);
+        }
+        if (Sculpture.Instance.impactScore.Total() > 14)
+        {
+            // VariableManager.Instance.SetYarnBool("checkpoint2", true);
+            goodTown.SetActive(true);
+        }
     }
 
     private void SetYarnVariables()

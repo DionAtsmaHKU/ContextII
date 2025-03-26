@@ -92,11 +92,15 @@ public class PlayerController : MonoBehaviour
         if (zInput > 0 && facingFront)
         {
             spriteRenderer.sprite = backSprite;
+            transform.localScale = new Vector3(transform.localScale.x * -1,
+               transform.localScale.y, transform.localScale.z);
             facingFront = false;
         }
         if (zInput <= 0 && !facingFront)
         {
             spriteRenderer.sprite = frontSprite;
+            transform.localScale = new Vector3(transform.localScale.x * -1,
+               transform.localScale.y, transform.localScale.z);
             facingFront = true;
         }
         
