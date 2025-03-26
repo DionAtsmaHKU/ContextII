@@ -29869,7 +29869,6 @@ MonoBehaviour:
   speed: 5
   toggleScript: {fileID: 1224960077}
   MovementEnabled: 1
-  mr: {fileID: 0}
   inSculptRange: 0
   prompt:
     UI: {fileID: 48708988}
