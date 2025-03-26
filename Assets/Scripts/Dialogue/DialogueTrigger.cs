@@ -8,8 +8,10 @@ public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] string eventName;
     [SerializeField] GameObject InputManager;
+    [SerializeField] bool SelfDestruct = false;
     public InteractPrompt prompt = new InteractPrompt();
     private bool player_present = false;
+
 
     public UnityEvent onTriggerDialogue;
 
@@ -33,30 +35,18 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void TriggerDialogue()
     {
         if (player_present == true)
         {
-            if (InputManager != null)
+            prompt.HidePrompt();
+            Debug.Log("Lets talk to / about:" + eventName);
+            onTriggerDialogue.Invoke();
+
+            if (SelfDestruct == true)
             {
-                if (InputManager.GetComponent<PlayerInput>().Interact == true)
-                {
-                    prompt.HidePrompt();
-                    TriggerDialogue();
-                }
-            }
-            else
-            {
-                Debug.Log("InputManager not connected");
+                Destroy(this.transform.parent.gameObject);
             }
         }
-    }
-
-    private void TriggerDialogue()
-    {
-        //in_dialogue = true;
-        Debug.Log("Lets talk to / about:" + eventName);
-        //send event with dialogue identifyer (string name)
-        onTriggerDialogue.Invoke();
     }
 }
