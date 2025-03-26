@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Dion 2D sculpt.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Playtest_scene.unity
     guid: 96f172d4b37f5b0419b36c5293196039
+  - enabled: 1
+    path: Assets/Scenes/Final Scene.unity
+    guid: 70c863a961e055846878c7df7fa86f2f
   m_configObjects: {}
