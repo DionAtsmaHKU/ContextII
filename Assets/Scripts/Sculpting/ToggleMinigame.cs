@@ -159,15 +159,17 @@ public class ToggleMinigame : MonoBehaviour
                     VariableManager.Instance.SetYarnBool("$HasShard", false);
                 }
             }
-            else if (item.name == "Rabbit" && !sculptList.Contains(item))
+            else if (item.name == "Rabbit")
             {
+                Debug.Log("Set HasRabbit to True");
                 VariableManager.Instance.SetYarnBool("$HasRabbit", true);
                 if (inGame && !sculptList.Contains(item))
                 {
+                    Debug.Log("Set HasRabbit to False");
                     VariableManager.Instance.SetYarnBool("$HasRabbit", false);
                 }
             }
-            else if (item.name == "Petition" && !sculptList.Contains(item))
+            else if (item.name == "Petition")
             {
                 VariableManager.Instance.SetYarnBool("$HasPetition", true);
                 if (inGame && !sculptList.Contains(item))

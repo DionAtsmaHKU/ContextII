@@ -3,9 +3,10 @@
 <<declare $Ca1Done = false as bool>>
 <<declare $Ca2Done = false as bool>>
 <<declare $EmpCar = false as bool>>
+//<<declare $HasRabbit = false>>
 <<if $Ca1Done == false>>
 <<jump Caring1 >>
-<<elseif $EmpCar == true>>
+<<elseif $EmpCar == true && $HasRabbit == true>>
 <<jump Caring2>>
 <<else>>
 <<jump Caring0>>
@@ -47,5 +48,27 @@ title: Caring2
 ---
 Cara looks a little lost without their stuffed rabbit.
     -> I've got something for you. (give them the stuffed rabbit back)
+        Cara's eyes light up when she sees the plushy. She holds out her hands, but hestitates. 
+        Cara: But the statue..?
+            -> I am making wonderful new statue for the town square, you don't need to worry.
+                <<RemoveItem Rabbit>>
+                You give the plush back to Cara, they seem delighted!
+                <<jump Bracelets>>
+            -> Actually, I just wanted to show the plush to you, I still need it for the statue.
+                Cara nods, they get it. 
     -> Move on (You can always give it back later)
+===
+
+title: Bracelets
+---
+Cara: Here, you can have this in return! I made these for us
+<<Item Bracelets>>
+Friendship Bracelets: You got an item! 
+Friendhip Bracelets: (And earned Cara's everlasting friendship!)
+===
+
+title: CarEnv
+---
+Cara: Power told me we're planting new plants in the town! Happy grass! Pretty flowers!
+Cara: But first the old sad plants have to go.
 ===
