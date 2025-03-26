@@ -25,9 +25,10 @@ Spire: I dropped my favorite bowl...
 Spire: ...and managed to lose all of the pieces.
 Spire: Don't ask me how, it's kind of an embarassing story.
 Spire: I really wanted to try to mend it. I am going to miss that bowl.
+
 <<if $HasShard == true>>
     -> Could this be a piece of the bowl?
-        <<jump bowl>>
+        <<jump Bowl>>
 <<endif>>
 <<set $In2Done = true>>
 ===
@@ -37,7 +38,7 @@ title: Inspiring3
 Spire: Those shards should be scattered somewhere around here? Why can't I find them?
 <<if $HasShard == true>>
     -> Could this be a piece of the bowl?
-         <<jump bowl>>
+         <<jump Bowl>>
 <<endif>>
 ===
 
@@ -46,6 +47,7 @@ title: Bowl
 Spire: It is! Thank you. Let me get my glue.
 Spire is patiently glueing the pieces of the bowl back together.
 <<Item Bowl>>
+<<RemoveItem Shard>>
 Spire: A few pieces are still missing, so it's not really useable for me anymore. 
 Spire: Maybe you can find a use for it?
 Bowl: You got an item!

@@ -13,7 +13,7 @@ public class ToggleMinigame : MonoBehaviour
     [SerializeField] GameObject sculpture;
     [SerializeField] GameObject inventoryParent;
     [SerializeField] GameObject tooltip;
-    [SerializeField] DialogueRunner runner;
+    // [SerializeField] DialogueRunner runner;
     public bool inGame;
     public int currentPage = 1;
 
@@ -23,7 +23,7 @@ public class ToggleMinigame : MonoBehaviour
 
     private void Start()
     {
-        runner.AddCommandHandler<string>("HasItem", HasItem);
+        // runner.AddCommandHandler<string>("HasItem", HasItem);
     }
 
     public void Toggle()
@@ -38,6 +38,7 @@ public class ToggleMinigame : MonoBehaviour
             tooltip.SetActive(false);
             camA.enabled = !camA.enabled;
             camB.enabled = !camA.enabled;
+            HasItem();
             inGame = false;
         }
         else
@@ -113,6 +114,7 @@ public class ToggleMinigame : MonoBehaviour
         Sculpture.Instance.UpdateScore();
     }
 
+    /*
     public void HasItem(string itemName)
     {
         foreach(Item item in inventory)
@@ -126,6 +128,7 @@ public class ToggleMinigame : MonoBehaviour
                 inventory.Remove(item);
                 if (itemName == "Shard")
                 {
+                    Debug.Log("Set HasShard to True");
                     VariableManager.Instance.SetYarnBool("$HasShard", true);
                 }
                 else if (itemName == "Rabbit")
@@ -135,6 +138,41 @@ public class ToggleMinigame : MonoBehaviour
                 else if (itemName == "Petition")
                 {
                     VariableManager.Instance.SetYarnBool("$HasPetition", true);
+                }
+            }
+        }
+        return;
+    }
+    */
+
+    public void HasItem()
+    {
+        foreach (Item item in inventory)
+        {
+            if (item.name == "Shard")
+            {
+                Debug.Log("Set HasShard to True");
+                VariableManager.Instance.SetYarnBool("$HasShard", true);
+                if (inGame && !sculptList.Contains(item))
+                {
+                    Debug.Log("Set HasShard t FALSE");
+                    VariableManager.Instance.SetYarnBool("$HasShard", false);
+                }
+            }
+            else if (item.name == "Rabbit" && !sculptList.Contains(item))
+            {
+                VariableManager.Instance.SetYarnBool("$HasRabbit", true);
+                if (inGame && !sculptList.Contains(item))
+                {
+                    VariableManager.Instance.SetYarnBool("$HasRabbit", false);
+                }
+            }
+            else if (item.name == "Petition" && !sculptList.Contains(item))
+            {
+                VariableManager.Instance.SetYarnBool("$HasPetition", true);
+                if (inGame && !sculptList.Contains(item))
+                {
+                    VariableManager.Instance.SetYarnBool("$HasPetition", false);
                 }
             }
         }

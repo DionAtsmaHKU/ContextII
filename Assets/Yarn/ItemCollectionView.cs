@@ -22,6 +22,7 @@ public class ItemCollectionView : DialogueViewBase
     {
         allItems = itemList.ToDictionary();
         runner.AddCommandHandler<string>("Item", GetItem);
+        runner.AddCommandHandler<string>("RemoveItem", RemoveItem);
 
         itemImage.enabled = false;
 
@@ -58,6 +59,7 @@ public class ItemCollectionView : DialogueViewBase
 
         print("give item: ");
         minigameManager.inventory.Add(allItems[itemName]);
+        minigameManager.HasItem();
 
         print(itemName);
         var current_item_sprite = itemSprites[itemName];
@@ -65,6 +67,22 @@ public class ItemCollectionView : DialogueViewBase
 
         //put collected item in inventory
     }
+
+    private void RemoveItem(string itemName)
+    {
+        print("remove item: ");
+        
+        minigameManager.inventory.Remove(allItems[itemName]);
+        if (minigameManager.sculptList.Contains(allItems[itemName]))
+        {
+            minigameManager.sculptList.Remove(allItems[itemName]);
+        }
+        
+        Destroy(allItems[itemName].gameObject);
+        VariableManager.Instance.SetYarnBool("$Has" + itemName, false);
+        print(itemName);
+    }
+
     public void onDialogueEnd()
     {
         itemImage.enabled = false;
