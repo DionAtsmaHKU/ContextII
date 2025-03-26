@@ -4,19 +4,24 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class Ending : MonoBehaviour
 {
     [SerializeField] GameObject endingCanvas;
     [SerializeField] List<TextMeshProUGUI> textTitles;
     [SerializeField] List<TextMeshProUGUI> textBoxes;
+    [SerializeField] List<Image> textImages;
     [SerializeField] CustomTextDictionary textList;
+    [SerializeField] CustomSpriteDictionary spriteList;
     private Dictionary<string, string> texts;
+    private Dictionary<string, Sprite> sprites;
     Dictionary<string, int> topThree = new Dictionary<string, int>();
 
     private void Start()
     {
         texts = textList.ToDictionary();
+        sprites = spriteList.ToDictionary();
     }
 
     private void Update()
@@ -74,6 +79,7 @@ public class Ending : MonoBehaviour
             Debug.Log(texts[item.Key]);
             textTitles[i].text = item.Key;
             textBoxes[i].text = texts[item.Key];
+            textImages[i].sprite = sprites[item.Key];
             i++;
         }
     }
@@ -101,4 +107,28 @@ public class CustomDictionaryText
 {
     [SerializeField] public string name;
     [SerializeField] public string text;
+}
+
+[Serializable]
+public class CustomSpriteDictionary
+{
+    [SerializeField] List<CustomDictionarySprite> items;
+
+    public Dictionary<string, Sprite> ToDictionary()
+    {
+        Dictionary<string, Sprite> newDict = new Dictionary<string, Sprite>();
+
+        foreach (CustomDictionarySprite item in items)
+        {
+            newDict.Add(item.name, item.sprite);
+        }
+        return newDict;
+    }
+}
+
+[Serializable]
+public class CustomDictionarySprite
+{
+    [SerializeField] public string name;
+    [SerializeField] public Sprite sprite;
 }
