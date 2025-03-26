@@ -11,13 +11,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] ToggleMinigame toggleScript;
     [SerializeField] bool MovementEnabled = true;
-    [SerializeField] MeshRenderer mr;
     public bool inSculptRange;
     private float sprintSpeed;
     [SerializeField] InteractPrompt prompt;
+    [SerializeField] Sprite frontSprite;
+    [SerializeField] Sprite backSprite;
+    private SpriteRenderer spriteRenderer;
+
+    private bool facingFront = true;
+    private bool facingRight = true;
 
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         sprintSpeed = speed * 2;
     }
 
@@ -51,12 +57,12 @@ public class PlayerController : MonoBehaviour
             if (MovementEnabled)
             {
                 MovementEnabled = false;
-                mr.enabled = false;
+                spriteRenderer.enabled = false;
             } 
             else
             {
                 MovementEnabled = true;
-                mr.enabled = true;
+                spriteRenderer.enabled = true;
             }
         }
 
@@ -75,6 +81,31 @@ public class PlayerController : MonoBehaviour
         float xInput = Input.GetAxisRaw("Horizontal");
         float zInput = Input.GetAxisRaw("Vertical");
         rb.velocity = new Vector3(xInput, rb.velocity.y/speed, zInput) * speed;
+
+        FlipPlayer(zInput, xInput);
+        
+    }
+
+    private void FlipPlayer(float zInput, float xInput)
+    {
+        if (zInput > 0 && facingFront)
+        {
+            spriteRenderer.sprite = backSprite;
+            facingFront = false;
+        }
+        if (zInput <= 0 && !facingFront)
+        {
+            spriteRenderer.sprite = frontSprite;
+            facingFront = true;
+        }
+        
+        if (xInput < 0 && facingRight || xInput >= 0 && !facingRight)
+        {
+            transform.localScale = new Vector3(transform.localScale.x * -1,
+                transform.localScale.y, transform.localScale.z);
+            facingRight = !facingRight;
+        }
+
     }
 
     public void DisableMove()
