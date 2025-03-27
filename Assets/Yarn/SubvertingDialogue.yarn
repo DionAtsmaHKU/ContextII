@@ -5,6 +5,8 @@
 
 <<if $Sub1Done == false>>
 <<jump Subverting1>>
+<<elseif $SusCheckpoint1 == true>>
+<<jump SubEnv>>
 <<else>>
 <<jump Subverting0>>
 <<endif>>
@@ -36,4 +38,11 @@ title: Crowbar
 <<Item Crowbar>>
 Crowbar: You got an item!
 <<set $Sub1Done = true>>
+===
+
+title: SubEnv
+---
+Vert: It was about time someone did something about all the boarded up windows around town.
+Vert: It may have been my fault some of those windows were broken in the first place, so I might as well fix them.
+Vert: Don't tell anyone I said that.
 ===
