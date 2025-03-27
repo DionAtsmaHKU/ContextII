@@ -2,10 +2,11 @@
 ---
 <<Act Subverting>>
 <<declare $Sub1Done = false>>
+<<declare $SubEnvDone = false>>
 
 <<if $Sub1Done == false>>
 <<jump Subverting1>>
-<<elseif $SusCheckpoint1 == true>>
+<<elseif $SusCheckpoint1 == true && $SubEnvDone == false>>
 <<jump SubEnv>>
 <<else>>
 <<jump Subverting0>>
@@ -44,5 +45,6 @@ title: SubEnv
 ---
 Vert: It was about time someone did something about all the boarded up windows around town.
 Vert: It may have been my fault some of those windows were broken in the first place, so I might as well fix them.
-Vert: Don't tell anyone I said that.
+Vert: Don't tell anyone I said that...
+<<set $SubEnvDone = true>>
 ===
