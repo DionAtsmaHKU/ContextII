@@ -21,6 +21,8 @@ public class Ending : DialogueViewBase
     private Dictionary<string, Sprite> sprites;
     Dictionary<string, int> topThree = new Dictionary<string, int>();
 
+    [SerializeField] GameObject titleUI;
+
     private void Start()
     {
         runner.AddCommandHandler("End", EndGame);
@@ -36,6 +38,17 @@ public class Ending : DialogueViewBase
             EndGame();
         }
         */
+    }
+
+    public void StartGame()
+    {
+        titleUI.SetActive(false);
+        runner.StartDialogue(runner.startNode);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     public void EndGame()
