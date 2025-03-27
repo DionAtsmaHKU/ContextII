@@ -7,6 +7,12 @@ using Yarn.Unity;
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] DialogueRunner runner;
+
+    public void EndingDialogue()
+    {
+        runner.StartDialogue("EndingDialogue");
+    }
+
     public void SculptureDialogue()
     {
         Debug.Log("Start Sculpture Dialogue");

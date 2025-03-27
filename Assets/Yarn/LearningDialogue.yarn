@@ -3,7 +3,7 @@ title: LearningDialogue
 <<Act Learning>>
 <<declare $Le1Done = false>>
 <<declare $MagnifierGot = false>>
-<<daclare $Le2Done = false>>
+<<declare $Le2Done = false>>
 
 <<if $Le1Done == false>>
 <<jump Learning1>>
@@ -64,11 +64,11 @@ Lena: I actually advised him on some of the phrasing. Opinions on pesticides hav
 title: Questions2
 ---
 -> What are pesticides?
-     Lena: Pesticides kill insects that would otherwise eat the harvest. What we didn't realise at first is that they also kill useful insects.
+     Lena: Pesticides kill insects that would otherwise eat the harvest. However, they also kill useful insects.
      Lena: After a few years of using them, many of the wild bee species have dissapeared from the surroundings of the town.
 -> Don't we need pesticides if we want to grow food?
      Lena: Not neccesarily. There are ways to farm that minimise the risk of pests without using poisons.
-     Lena: We have always grown only wheat of the farm. This is called a monoculture. 
+     Lena: We have always grown only wheat of the farm. This is called monoculture. 
      <<jump Questions2>>
 -> Pesticides suck, I'm glad we're petitioning to get rid of them.
      Lena: I am glad too, however, they are not all bad. Pesticides kill insects that threaten our crops. 

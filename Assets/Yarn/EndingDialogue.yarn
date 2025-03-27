@@ -1,0 +1,30 @@
+﻿title: EndingDialogue
+tags:
+---
+<<declare $FirstInteract = true>>
+
+<<if $FirstInteract == true>>
+<<jump EndingFirstInteract>>
+<<else>>
+<<jump EndGame>>
+<<endif>>
+===
+
+title: EndingFirstInteract
+---
+Sign: This is where you can finish up your sculpture when you're done.
+Sign: Finishing your sculpture will end the game.
+<<set $FirstInteract = false>>
+<<jump EndGame>>
+===
+
+title: EndGame
+---
+Would you like to finish up your sculpture? (This will end the game)
+    -> Not yet
+    -> Yes, I am done.
+        Are you sure?
+            -> No
+            -> yes 
+                //finish game command here
+===
