@@ -25,6 +25,7 @@ Would you like to finish up your sculpture? (This will end the game)
     -> Yes, I am done.
         Are you sure?
             -> No
-            -> yes 
+            -> Yes! 
+                << End >>
                 //finish game command here
 ===

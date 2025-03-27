@@ -54,17 +54,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && inSculptRange || 
            (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape)) && toggleScript.inGame)
         {
-            toggleScript.Toggle();
-            if (MovementEnabled)
-            {
-                MovementEnabled = false;
-                spriteRenderer.enabled = false;
-            } 
-            else
-            {
-                MovementEnabled = true;
-                spriteRenderer.enabled = true;
-            }
+            OpenCloseMinigame();
         }
 
         if (Input.GetKeyDown(KeyCode.N))
@@ -74,6 +64,21 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B))
         {
             toggleScript.OpenInventory(toggleScript.currentPage - 1);
+        }
+    }
+
+    public void OpenCloseMinigame()
+    {
+        toggleScript.Toggle();
+        if (MovementEnabled)
+        {
+            MovementEnabled = false;
+            spriteRenderer.enabled = false;
+        }
+        else
+        {
+            MovementEnabled = true;
+            spriteRenderer.enabled = true;
         }
     }
 

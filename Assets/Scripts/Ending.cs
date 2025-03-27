@@ -2,12 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using Yarn.Unity;
 
-public class Ending : MonoBehaviour
+public class Ending : DialogueViewBase
 {
+    [SerializeField] DialogueRunner runner;
     [SerializeField] GameObject endingCanvas;
     [SerializeField] List<TextMeshProUGUI> textTitles;
     [SerializeField] List<TextMeshProUGUI> textBoxes;
@@ -20,19 +23,22 @@ public class Ending : MonoBehaviour
 
     private void Start()
     {
+        runner.AddCommandHandler("End", EndGame);
         texts = textList.ToDictionary();
         sprites = spriteList.ToDictionary();
     }
 
     private void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.L))
         {
-            CalculateTopThree();
+            EndGame();
         }
+        */
     }
 
-    public void CalculateTopThree()
+    public void EndGame()
     {
         Dictionary<string, int> allScores = ScoresToDictionary();
         

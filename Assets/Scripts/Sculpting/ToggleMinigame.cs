@@ -14,6 +14,7 @@ public class ToggleMinigame : MonoBehaviour
     [SerializeField] GameObject badTown;
     [SerializeField] GameObject inventoryParent;
     [SerializeField] GameObject tooltip;
+    [SerializeField] ParticleSystem sparkles;
     // [SerializeField] DialogueRunner runner;
     public bool inGame;
     public int currentPage = 1;
@@ -41,6 +42,7 @@ public class ToggleMinigame : MonoBehaviour
             camA.enabled = !camA.enabled;
             camB.enabled = !camA.enabled;
             HasItem();
+            sparkles.Play();
             inGame = false;
         }
         else
@@ -185,14 +187,14 @@ public class ToggleMinigame : MonoBehaviour
 
     private void CheckSusCheckpoint()
     {
-        if (Sculpture.Instance.impactScore.Total() > 5)
+        if (Sculpture.Instance.impactScore.Total() > 3)
         {
-            // VariableManager.Instance.SetYarnBool("checkpoint1", true);
+            VariableManager.Instance.SetYarnBool("$SusCheckpoint1", true);
             badTown.SetActive(false);
         }
-        if (Sculpture.Instance.impactScore.Total() > 14)
+        if (Sculpture.Instance.impactScore.Total() > 8)
         {
-            // VariableManager.Instance.SetYarnBool("checkpoint2", true);
+            VariableManager.Instance.SetYarnBool("$SusCheckpoint2", true);
             goodTown.SetActive(true);
         }
     }
