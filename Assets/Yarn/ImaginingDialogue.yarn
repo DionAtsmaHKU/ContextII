@@ -2,14 +2,14 @@ title: ImaginingDialogue
 ---
 <<Act Imagining>>
 
-<<declare $Im1Done = false as bool>>
-<<declare $Im2Done = false as bool>>
-<<declare $ToolGot = false as bool>>
-<<declare $ImaginingQuest = false as bool>>
+<<declare $Im1Done = false>>
+<<declare $Im2Done = false>>
+<<declare $ToolGot = false>>
+<<declare $SeedsGot = false>>
 
 <<if $Im1Done == false>>
 <<jump Imagining1 >>
-<<elseif $ImaginingQuest == true>>
+<<elseif $ImaginingStat >= 1 && $SusCheckpoint1>>
 <<jump Imagining2>>
 <<else>>
 <<jump Imagining0>>
@@ -35,9 +35,13 @@ title: Imagining2
 ---
 Gini is digging holes in the dirt
     -> What are you digging holes for?
+        <<if $SeedsGot == false>>
         <<jump Seeds>>
-    <<if $ToolGot == false>>
-    -> Join her
+        <<elseif $SeedsGot == true>>
+        Gini: To plant magical talking baby trees.
+        <<endif>>
+    -> Join her 
+        <<if $ToolGot == false>>
         Gini and you dig holes in the dirt.
         It feels kind of nice to be so close to the ground. It's freeing to dig just for the hell of it.
         It's a lot like sculpting with clay actually. 
@@ -46,7 +50,11 @@ Gini is digging holes in the dirt
         Gini: Those holes aren't good. The holes need to be <i>really<i> deep!
         Gini: Here, take this. It's a magical tool for making really really deep holes.
         <<jump Tool>>
-    <<endif>>
+        <<elseif $ToolGot == true>>
+        Gini and you dig holes in the dirt.
+        You use your tool to make them really really deep.
+        Gini seems to be enjoying herself.
+        <<endif>>
     -> Leave her be
 ===
 
