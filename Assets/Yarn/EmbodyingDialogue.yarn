@@ -2,9 +2,12 @@ title: EmbodyingDialogue
 ---
 <<Act Embodying>>
 <<declare $Emb1Done = false>>
+<<declare $Emb2Done = false>>
 
 <<if $Emb1Done == false>>
 <<jump Embodying1>>
+<<elseif $EmbodyingStat >= 2>>
+<<jump Embodying2>>
 <<else>>
 <<jump Embodying0>>
 <<endif>>
@@ -22,4 +25,41 @@ Em: ...
 Em: Get it?
 Em: Anyway. Do you think I could make money by standing on that pedestal as one of those living statues?
 <<set $Emb1Done = true>>
+===
+
+title: Embodying2
+---
+<<if $Emb2Done == true>>
+<<jump Embodying3>>
+<<endif>>
+<<Act Embodying2>>
+Em: ...
+Em is balancing on one leg, swaying back and forth a bit, looking concentrated.
+Em: ... 
+Em: Please throw a coin into the top hat. I don't know how much longer I'll be able to hold still.
+    -> Give them a coin
+        Em gracefully waves their hat at you, bows and adopts a new stance.
+    -> Peek into the hat
+        A handful of coins is lying at the bottom of the top hat. 
+        -> What are you going to do with the money?
+        Em: I don't know, I'm not really doing it for the money. I just thought it would be fun.
+        Em: You can have it if you like. Take the hat too, I don't wear it.
+        <<jump Hat>>
+===
+
+title: Hat
+---
+<<Item Hat>>
+Hat: You got an item!
+<<set $Emb2Done = true>>
+===
+
+title: Embodying3
+---
+Em gracefully waves their hat at you, bows and adopts a new stance.
+===
+
+title: EmEnv
+---
+Em: 
 ===
