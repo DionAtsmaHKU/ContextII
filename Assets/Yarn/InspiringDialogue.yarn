@@ -10,7 +10,7 @@
 <<elseif $In2Done == true && $In3done == false>>
 <<jump Inspiring3>>
 <<elseif $SusCheckpoint2>>
-<<jump CoEnv>>
+<<jump InsEnv>>
 <<else>>
 <<jump Inspiring1>>
 <<endif>>
